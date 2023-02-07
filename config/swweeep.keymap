@@ -14,16 +14,21 @@
     continue-list = <UNDERSCORE MINUS>;
 };
 
-/* / { */
-/*     combos { */
-/*         compatible = "zmk,combos"; */
-/*         combo_undo { */
-/*             timeout-ms = <50>; */
-/*             key-positions = <20 21>; */
-/*             bindings = <&kp LGUI(Z)>; */
-/*         }; */
-/*     }; */
-/* }; */
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_caps_word {
+            timeout-ms = <50>;
+            key-positions = <12 17>;
+            bindings = <&caps_word>;
+        };
+        combo_caps_lock {
+            timeout-ms = <50>;
+            key-positions = <12 17 18>;
+            bindings = <&kp CAPS>;
+        };
+    };
+};
 
 / {
 
