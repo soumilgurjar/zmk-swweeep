@@ -35,6 +35,16 @@
             key-positions = <12 17 18>;
             bindings = <&kp CAPS>;
         };
+        combo_previous_app {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&kp LG(TAB)>;
+        };
+        combo_previous_window {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&kp LG(GRAVE)>;
+        };
     };
 };
 
