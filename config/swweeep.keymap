@@ -28,22 +28,37 @@
         combo_caps_word {
             timeout-ms = <50>;
             key-positions = <12 17>;
+            layers = <DEF_MAC DEF_WIN>;
+			slow-release;
             bindings = <&caps_word>;
         };
         combo_caps_lock {
             timeout-ms = <50>;
-            key-positions = <12 17 18>;
+            key-positions = <26 27 28>;
+            layers = <DEF_MAC DEF_WIN>;
+			slow-release;
             bindings = <&kp CAPS>;
         };
-        combo_previous_app {
+        combo_previous_app_mac {
             timeout-ms = <50>;
             key-positions = <22 23>;
+            layers = <DEF_MAC>;
+			slow-release;
             bindings = <&kp LG(TAB)>;
         };
-        combo_previous_window {
+        combo_previous_window_mac {
             timeout-ms = <50>;
             key-positions = <21 22>;
+            layers = <DEF_MAC>;
+			slow-release;
             bindings = <&kp LG(GRAVE)>;
+        };
+        combo_previous_app_win {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            layers = <DEF_WIN>;
+			slow-release;
+            bindings = <&kp LA(TAB)>;
         };
     };
 };
