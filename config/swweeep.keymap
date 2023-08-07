@@ -18,6 +18,8 @@
 #define BUT_WIN 12
 #define GAM_WIN 13
 
+#define HYP LC(LA(LS(LGUI)))
+
 &caps_word {
     continue-list = <UNDERSCORE MINUS>;
 };
@@ -69,7 +71,7 @@
 
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
+            label = "homerow_mods";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
             quick_tap_ms = <200>;
@@ -89,7 +91,7 @@
 
         td_mac_win: tap_dance_mac_win {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_MAC_WIN";
+            label = "tap_dance_mac_win";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&switch_to_mac>, <&switch_to_win>;
@@ -97,23 +99,23 @@
 
         td_def_mac_win: tap_dance_def_mac_win {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_DEF_MAC_WIN";
+            label = "tap_dance_def_mac_win";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&to DEF_MAC>, <&to DEF_WIN>;
         };
 
-        td_gaming_mac: tap_dance_gaming_mac {
+        td_mac_gaming: tap_dance_mac_gaming {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_GAMING_MAC";
+            label = "tap_dance_mac_gaming";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&to DEF_MAC>, <&to GAM>;
         };
 
-        td_gaming_win: tap_dance_gaming_win {
+        td_win_gaming: tap_dance_win_gaming {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_GAMING_WIN";
+            label = "tap_dance_win_gaming";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&to DEF_WIN>, <&to GAM_WIN>;
@@ -142,27 +144,27 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            label = "Default";
+        mac_default_layer {
+            label = "Mac Default";
             bindings = <
-//    ┌─────────────┬────────────┬─────────────┬────────────┬──────────────┐                                ┌──────────────┬──────────────┬─────────────┬────────────┬────────────────┐
-//    │    &kp Q    │   &kp W    │    &kp E    │   &kp R    │    &kp T     │                                │    &kp Y     │    &kp U     │    &kp I    │   &kp O    │     &kp P      │
-//    ├─────────────┼────────────┼─────────────┼────────────┼──────────────┤                                ├──────────────┼──────────────┼─────────────┼────────────┼────────────────┤
-//    │ &hm LCTRL A │ &hm LALT S │ &hm LSHFT D │ &hm LGUI F │    &kp G     │                                │    &kp H     │  &hm RGUI J  │ &hm RSHFT K │ &hm RALT L │ &hm RCTRL SEMI │
-//    ├─────────────┼────────────┼─────────────┼────────────┼──────────────┤                                ├──────────────┼──────────────┼─────────────┼────────────┼────────────────┤
-//    │    &kp Z    │   &kp X    │    &kp C    │   &kp V    │    &kp B     │                                │    &kp N     │    &kp M     │  &kp COMMA  │  &kp DOT   │    &kp FSLH    │
-//    └─────────────┴────────────┴─────────────┼────────────┼──────────────┼────────────────┬───────────────┼──────────────┼──────────────┼─────────────┴────────────┴────────────────┘
-//                                             │  &kp ESC   │ &trl BUT TAB │ &trl NAV SPACE │ &trl NUM BSPC │ &trl SYM RET │ &trl FUN DEL │                                            
-//                                             └────────────┴──────────────┴────────────────┴───────────────┴──────────────┴──────────────┘                                            
-  &kp Q         &kp W        &kp E         &kp R        &kp T                                           &kp Y          &kp U          &kp I         &kp O        &kp P         
-  &hm LCTRL A   &hm LALT S   &hm LSHFT D   &hm LGUI F   &kp G                                           &kp H          &hm RGUI J     &hm RSHFT K   &hm RALT L   &hm RCTRL SEMI
-  &kp Z         &kp X        &kp C         &kp V        &kp B                                           &kp N          &kp M          &kp COMMA     &kp DOT      &kp FSLH      
-                                           &kp ESC      &trl BUT TAB   &trl NAV SPACE   &trl NUM BSPC   &trl SYM RET   &trl FUN DEL                                            
+//    ┌─────────────┬────────────┬─────────────┬──────────────┬─────────────┐                                ┌──────────────┬──────────────┬─────────────┬────────────┬────────────────┐
+//    │    &kp Q    │   &kp W    │    &kp E    │    &kp R     │    &kp T    │                                │    &kp Y     │    &kp U     │    &kp I    │   &kp O    │     &kp P      │
+//    ├─────────────┼────────────┼─────────────┼──────────────┼─────────────┤                                ├──────────────┼──────────────┼─────────────┼────────────┼────────────────┤
+//    │ &hm LCTRL A │ &hm LALT S │ &hm LSHFT D │  &hm LGUI F  │  &hm HYP G  │                                │  &hm HYP H   │  &hm RGUI J  │ &hm RSHFT K │ &hm RALT L │ &hm RCTRL SEMI │
+//    ├─────────────┼────────────┼─────────────┼──────────────┼─────────────┤                                ├──────────────┼──────────────┼─────────────┼────────────┼────────────────┤
+//    │    &kp Z    │   &kp X    │    &kp C    │    &kp V     │    &kp B    │                                │    &kp N     │    &kp M     │  &kp COMMA  │  &kp DOT   │    &kp FSLH    │
+//    └─────────────┴────────────┴─────────────┼──────────────┼─────────────┼────────────────┬───────────────┼──────────────┼──────────────┼─────────────┴────────────┴────────────────┘
+//                                             │ &trl BUT ESC │ &hm HYP TAB │ &trl NAV SPACE │ &trl NUM BSPC │ &trl SYM RET │ &trl FUN DEL │                                            
+//                                             └──────────────┴─────────────┴────────────────┴───────────────┴──────────────┴──────────────┘                                            
+  &kp Q         &kp W        &kp E         &kp R          &kp T                                          &kp Y          &kp U          &kp I         &kp O        &kp P         
+  &hm LCTRL A   &hm LALT S   &hm LSHFT D   &hm LGUI F     &hm HYP G                                      &hm HYP H      &hm RGUI J     &hm RSHFT K   &hm RALT L   &hm RCTRL SEMI
+  &kp Z         &kp X        &kp C         &kp V          &kp B                                          &kp N          &kp M          &kp COMMA     &kp DOT      &kp FSLH      
+                                           &trl BUT ESC   &hm HYP TAB   &trl NAV SPACE   &trl NUM BSPC   &trl SYM RET   &trl FUN DEL                                            
             >;
         };
 
-        nav_layer {
-            label = "Navigation";
+		mac_navigation_layer {
+            label = "Mac Navigation";
             bindings = <
 //    ┌───────────────┬───────────┬───────────┬───────────┬───────────┐                  ┌──────────────────┬──────────────┬───────────────┬───────────────────┬───────┐
 //    │ &kp LG(LS(Z)) │ &kp LG(X) │ &kp LG(C) │ &kp LG(V) │ &kp LG(Z) │                  │    &kp PG_DN     │   &kp HOME   │    &kp END    │     &kp PG_UP     │ &none │
@@ -180,8 +182,8 @@
             >;
         };
 
-		number_layer {
-            label = "Numbers";
+		mac_number_layer {
+            label = "Mac Numbers";
 			bindings = <
 //    ┌───────────┬────────┬────────┬─────────┬───────────┐                ┌───────┬──────────┬───────────┬──────────┬───────────┐
 //    │ &kp GRAVE │ &kp N7 │ &kp N8 │ &kp N9  │ &kp BSLH  │                │ &none │  &none   │   &none   │  &none   │   &none   │
@@ -199,8 +201,8 @@
 			>;
 		};
 
-        sym_layer {
-            label = "Symbols";
+		mac_symbol_layer {
+            label = "Mac Symbols";
             bindings = <
 //    ┌───────────┬────────────┬───────────┬───────────┬───────────┐                  ┌───────┬──────────┬───────────┬──────────┬───────────┐
 //    │ &kp TILDE │  &kp AMPS  │ &kp ASTRK │ &kp LPAR  │ &kp PIPE  │                  │ &none │  &none   │   &none   │  &none   │   &none   │
@@ -218,8 +220,8 @@
             >;
         };
 			
-		function_layer {
-            label = "Function keys";
+		mac_function_layer {
+            label = "Mac Function keys";
 			bindings = <
 //    ┌─────────┬────────┬────────┬────────┬───────┐               ┌───────┬──────────┬───────────┬──────────┬───────────┐
 //    │ &kp F12 │ &kp F7 │ &kp F8 │ &kp F9 │ &none │               │ &none │  &none   │   &none   │  &none   │   &none   │
@@ -237,8 +239,8 @@
 			>;
 		};
 
-		button_layer {
-            label = "Buttons";
+		mac_button_layer {
+            label = "Mac Buttons";
 			bindings = <
 //    ┌──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐                         ┌─────────────┬────────────────┬──────────────────┬────────────┬───────────────┐
 //    │ &bt BT_SEL 0 │ &bt BT_SEL 1 │ &bt BT_SEL 2 │ &bt BT_SEL 3 │ &bt BT_SEL 4 │                         │    &none    │   &kp C_PREV   │ &kp C_PLAY_PAUSE │ &kp C_NEXT │     &none     │
@@ -247,12 +249,12 @@
 //    ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤                         ├─────────────┼────────────────┼──────────────────┼────────────┼───────────────┤
 //    │  &bt BT_CLR  │    &none     │    &none     │    &none     │ &bootloader  │                         │ &bootloader │ &kp C_BRI_DEC  │  &kp C_BRI_INC   │   &none    │ &kp C_AL_LOCK │
 //    └──────────────┴──────────────┴──────────────┼──────────────┼──────────────┼───────┬─────────────────┼─────────────┼────────────────┼──────────────────┴────────────┴───────────────┘
-//                                                 │    &none     │    &none     │ &none │ &td_def_mac_win │ &td_mac_win │ &td_gaming_mac │                                                
+//                                                 │    &none     │    &none     │ &none │ &td_def_mac_win │ &td_mac_win │ &td_mac_gaming │                                                
 //                                                 └──────────────┴──────────────┴───────┴─────────────────┴─────────────┴────────────────┘                                                
   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                             &none         &kp C_PREV       &kp C_PLAY_PAUSE   &kp C_NEXT   &none        
   &none          &none          &none          &none          &none                                    &none         &kp C_VOL_DN     &kp C_VOL_UP       &kp C_MUTE   &none        
   &bt BT_CLR     &none          &none          &none          &bootloader                              &bootloader   &kp C_BRI_DEC    &kp C_BRI_INC      &none        &kp C_AL_LOCK
-                                               &none          &none          &none   &td_def_mac_win   &td_mac_win   &td_gaming_mac                                                
+                                               &none          &none          &none   &td_def_mac_win   &td_mac_win   &td_mac_gaming                                                
 			>;
 		};
 
@@ -266,35 +268,35 @@
 //    ├───────┼───────┼───────┼──────────────┼───────────────┤                            ├─────────┼────────────────┼───────────┼─────────┼──────────┤
 //    │ &kp Z │ &kp X │ &kp C │    &kp V     │     &kp B     │                            │  &kp N  │     &kp M      │ &kp COMMA │ &kp DOT │ &kp FSLH │
 //    └───────┴───────┴───────┼──────────────┼───────────────┼─────────────────┬──────────┼─────────┼────────────────┼───────────┴─────────┴──────────┘
-//                            │ &hm LALT ESC │ &hm LSHFT TAB │ &hm LCTRL SPACE │ &kp BSPC │ &kp RET │ &td_gaming_mac │                                 
+//                            │ &hm LALT ESC │ &hm LSHFT TAB │ &hm LCTRL SPACE │ &kp BSPC │ &kp RET │ &td_mac_gaming │                                 
 //                            └──────────────┴───────────────┴─────────────────┴──────────┴─────────┴────────────────┘                                 
   &kp Q   &kp W   &kp E   &kp R          &kp T                                        &kp Y     &kp U            &kp I       &kp O     &kp P   
   &kp A   &kp S   &kp D   &kp F          &kp G                                        &kp H     &kp J            &kp K       &kp L     &kp SEMI
   &kp Z   &kp X   &kp C   &kp V          &kp B                                        &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
-                          &hm LALT ESC   &hm LSHFT TAB   &hm LCTRL SPACE   &kp BSPC   &kp RET   &td_gaming_mac                                 
+                          &hm LALT ESC   &hm LSHFT TAB   &hm LCTRL SPACE   &kp BSPC   &kp RET   &td_mac_gaming                                 
 			>;
 		};
 
         win_default_layer {
             label = "Windows Default";
             bindings = <
-//    ┌────────────┬────────────┬─────────────┬─────────────┬──────────────────┐                                        ┌──────────────────┬──────────────────┬─────────────┬────────────────────────┬───────────────┐
-//    │   &kp Q    │   &kp W    │    &kp E    │    &kp R    │      &kp T       │                                        │      &kp Y       │      &kp U       │    &kp I    │ &hm LC(LA(LS(LGUI))) O │     &kp P     │
-//    ├────────────┼────────────┼─────────────┼─────────────┼──────────────────┤                                        ├──────────────────┼──────────────────┼─────────────┼────────────────────────┼───────────────┤
-//    │ &hm LGUI A │ &hm LALT S │ &hm LSHFT D │ &hm LCTRL F │      &kp G       │                                        │      &kp H       │   &hm RCTRL J    │ &hm RSHFT K │       &hm RALT L       │ &hm RGUI SEMI │
-//    ├────────────┼────────────┼─────────────┼─────────────┼──────────────────┤                                        ├──────────────────┼──────────────────┼─────────────┼────────────────────────┼───────────────┤
-//    │   &kp Z    │   &kp X    │    &kp C    │    &kp V    │      &kp B       │                                        │      &kp N       │      &kp M       │  &kp COMMA  │        &kp DOT         │   &kp FSLH    │
-//    └────────────┴────────────┴─────────────┼─────────────┼──────────────────┼────────────────────┬───────────────────┼──────────────────┼──────────────────┼─────────────┴────────────────────────┴───────────────┘
-//                                            │   &kp ESC   │ &trl BUT_WIN TAB │ &trl NAV_WIN SPACE │ &trl NUM_WIN BSPC │ &trl SYM_WIN RET │ &trl FUN_WIN DEL │                                                       
-//                                            └─────────────┴──────────────────┴────────────────────┴───────────────────┴──────────────────┴──────────────────┘                                                       
-  &kp Q        &kp W        &kp E         &kp R         &kp T                                                       &kp Y              &kp U              &kp I         &hm LC(LA(LS(LGUI))) O   &kp P        
-  &hm LGUI A   &hm LALT S   &hm LSHFT D   &hm LCTRL F   &kp G                                                       &kp H              &hm RCTRL J        &hm RSHFT K   &hm RALT L               &hm RGUI SEMI
-  &kp Z        &kp X        &kp C         &kp V         &kp B                                                       &kp N              &kp M              &kp COMMA     &kp DOT                  &kp FSLH     
-                                          &kp ESC       &trl BUT_WIN TAB   &trl NAV_WIN SPACE   &trl NUM_WIN BSPC   &trl SYM_WIN RET   &trl FUN_WIN DEL                                                       
+//    ┌────────────┬────────────┬─────────────┬──────────────────┬─────────────┐                                        ┌──────────────────┬──────────────────┬─────────────┬────────────┬───────────────┐
+//    │   &kp Q    │   &kp W    │    &kp E    │      &kp R       │    &kp T    │                                        │      &kp Y       │      &kp U       │    &kp I    │ &hm HYP O  │     &kp P     │
+//    ├────────────┼────────────┼─────────────┼──────────────────┼─────────────┤                                        ├──────────────────┼──────────────────┼─────────────┼────────────┼───────────────┤
+//    │ &hm LGUI A │ &hm LALT S │ &hm LSHFT D │   &hm LCTRL F    │  &hm HYP G  │                                        │    &hm HYP H     │   &hm RCTRL J    │ &hm RSHFT K │ &hm RALT L │ &hm RGUI SEMI │
+//    ├────────────┼────────────┼─────────────┼──────────────────┼─────────────┤                                        ├──────────────────┼──────────────────┼─────────────┼────────────┼───────────────┤
+//    │   &kp Z    │   &kp X    │    &kp C    │      &kp V       │    &kp B    │                                        │      &kp N       │      &kp M       │  &kp COMMA  │  &kp DOT   │   &kp FSLH    │
+//    └────────────┴────────────┴─────────────┼──────────────────┼─────────────┼────────────────────┬───────────────────┼──────────────────┼──────────────────┼─────────────┴────────────┴───────────────┘
+//                                            │ &trl BUT_WIN ESC │ &hm HYP TAB │ &trl NAV_WIN SPACE │ &trl NUM_WIN BSPC │ &trl SYM_WIN RET │ &trl FUN_WIN DEL │                                           
+//                                            └──────────────────┴─────────────┴────────────────────┴───────────────────┴──────────────────┴──────────────────┘                                           
+  &kp Q        &kp W        &kp E         &kp R              &kp T                                                  &kp Y              &kp U              &kp I         &hm HYP O    &kp P        
+  &hm LGUI A   &hm LALT S   &hm LSHFT D   &hm LCTRL F        &hm HYP G                                              &hm HYP H          &hm RCTRL J        &hm RSHFT K   &hm RALT L   &hm RGUI SEMI
+  &kp Z        &kp X        &kp C         &kp V              &kp B                                                  &kp N              &kp M              &kp COMMA     &kp DOT      &kp FSLH     
+                                          &trl BUT_WIN ESC   &hm HYP TAB   &trl NAV_WIN SPACE   &trl NUM_WIN BSPC   &trl SYM_WIN RET   &trl FUN_WIN DEL                                           
             >;
         };
 
-        win_nav_layer {
+		win_navigation_layer {
             label = "Windows Navigation";
             bindings = <
 //    ┌───────────────┬───────────┬───────────┬───────────┬───────────┐                  ┌──────────────────┬──────────────┬───────────────┬───────────────────┬───────┐
@@ -332,7 +334,7 @@
 			>;
 		};
 
-        win_sym_layer {
+		win_symbol_layer {
             label = "Windows Symbols";
             bindings = <
 //    ┌───────────┬────────────┬───────────┬───────────┬───────────┐                  ┌───────┬───────────┬───────────┬──────────┬──────────┐
@@ -380,12 +382,12 @@
 //    ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤                         ├─────────────┼────────────────┼──────────────────┼─────────────┼───────────────┤
 //    │  &bt BT_CLR  │    &none     │    &none     │    &none     │ &bootloader  │                         │ &bootloader │ &kp C_BRI_DEC  │  &kp C_BRI_INC   │ &kp C_POWER │ &kp C_AL_LOCK │
 //    └──────────────┴──────────────┴──────────────┼──────────────┼──────────────┼───────┬─────────────────┼─────────────┼────────────────┼──────────────────┴─────────────┴───────────────┘
-//                                                 │    &none     │    &none     │ &none │ &td_def_mac_win │ &td_mac_win │ &td_gaming_win │                                                 
+//                                                 │    &none     │    &none     │ &none │ &td_def_mac_win │ &td_mac_win │ &td_win_gaming │                                                 
 //                                                 └──────────────┴──────────────┴───────┴─────────────────┴─────────────┴────────────────┘                                                 
   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                             &none         &kp C_PREV       &kp C_PLAY_PAUSE   &kp C_NEXT    &none        
   &none          &none          &none          &none          &none                                    &none         &kp C_VOL_DN     &kp C_VOL_UP       &kp C_MUTE    &none        
   &bt BT_CLR     &none          &none          &none          &bootloader                              &bootloader   &kp C_BRI_DEC    &kp C_BRI_INC      &kp C_POWER   &kp C_AL_LOCK
-                                               &none          &none          &none   &td_def_mac_win   &td_mac_win   &td_gaming_win                                                 
+                                               &none          &none          &none   &td_def_mac_win   &td_mac_win   &td_win_gaming                                                 
 			>;
 		};
 
@@ -399,12 +401,12 @@
 //    ├───────┼───────┼───────┼──────────────┼───────────────┤                            ├─────────┼────────────────┼───────────┼─────────┼──────────┤
 //    │ &kp Z │ &kp X │ &kp C │    &kp V     │     &kp B     │                            │  &kp N  │     &kp M      │ &kp COMMA │ &kp DOT │ &kp FSLH │
 //    └───────┴───────┴───────┼──────────────┼───────────────┼─────────────────┬──────────┼─────────┼────────────────┼───────────┴─────────┴──────────┘
-//                            │ &hm LALT ESC │ &hm LSHFT TAB │ &hm LCTRL SPACE │ &kp BSPC │ &kp RET │ &td_gaming_win │                                 
+//                            │ &hm LALT ESC │ &hm LSHFT TAB │ &hm LCTRL SPACE │ &kp BSPC │ &kp RET │ &td_win_gaming │                                 
 //                            └──────────────┴───────────────┴─────────────────┴──────────┴─────────┴────────────────┘                                 
   &kp Q   &kp W   &kp E   &kp R          &kp T                                        &kp Y     &kp U            &kp I       &kp O     &kp P   
   &kp A   &kp S   &kp D   &kp F          &kp G                                        &kp H     &kp J            &kp K       &kp L     &kp SEMI
   &kp Z   &kp X   &kp C   &kp V          &kp B                                        &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
-                          &hm LALT ESC   &hm LSHFT TAB   &hm LCTRL SPACE   &kp BSPC   &kp RET   &td_gaming_win                                 
+                          &hm LALT ESC   &hm LSHFT TAB   &hm LCTRL SPACE   &kp BSPC   &kp RET   &td_win_gaming                                 
 			>;
 		};
 
