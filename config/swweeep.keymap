@@ -316,19 +316,19 @@
 		mac_gaming_layer {
             label = "Mac Gaming";
 			bindings = <
-//    ┌───────┬───────┬───────┬──────────────┬───────────────┐                            ┌─────────┬────────────────┬───────────┬─────────┬──────────┐
-//    │ &kp Q │ &kp W │ &kp E │    &kp R     │     &kp T     │                            │  &kp Y  │     &kp U      │   &kp I   │  &kp O  │  &kp P   │
-//    ├───────┼───────┼───────┼──────────────┼───────────────┤                            ├─────────┼────────────────┼───────────┼─────────┼──────────┤
-//    │ &kp A │ &kp S │ &kp D │    &kp F     │     &kp G     │                            │  &kp H  │     &kp J      │   &kp K   │  &kp L  │ &kp SEMI │
-//    ├───────┼───────┼───────┼──────────────┼───────────────┤                            ├─────────┼────────────────┼───────────┼─────────┼──────────┤
-//    │ &kp Z │ &kp X │ &kp C │    &kp V     │     &kp B     │                            │  &kp N  │     &kp M      │ &kp COMMA │ &kp DOT │ &kp FSLH │
-//    └───────┴───────┴───────┼──────────────┼───────────────┼─────────────────┬──────────┼─────────┼────────────────┼───────────┴─────────┴──────────┘
-//                            │ &hm LALT ESC │ &hm LSHFT TAB │ &hm LCTRL SPACE │ &kp BSPC │ &kp RET │ &td_mac_gaming │                                 
-//                            └──────────────┴───────────────┴─────────────────┴──────────┴─────────┴────────────────┘                                 
-  &kp Q   &kp W   &kp E   &kp R          &kp T                                        &kp Y     &kp U            &kp I       &kp O     &kp P   
-  &kp A   &kp S   &kp D   &kp F          &kp G                                        &kp H     &kp J            &kp K       &kp L     &kp SEMI
-  &kp Z   &kp X   &kp C   &kp V          &kp B                                        &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
-                          &hm LALT ESC   &hm LSHFT TAB   &hm LCTRL SPACE   &kp BSPC   &kp RET   &td_mac_gaming                                 
+//    ┌───────┬───────┬───────┬───────────────┬───────────────┐                           ┌─────────┬────────────────┬───────────┬─────────┬──────────┐
+//    │ &kp Q │ &kp W │ &kp E │     &kp R     │     &kp T     │                           │  &kp Y  │     &kp U      │   &kp I   │  &kp O  │  &kp P   │
+//    ├───────┼───────┼───────┼───────────────┼───────────────┤                           ├─────────┼────────────────┼───────────┼─────────┼──────────┤
+//    │ &kp A │ &kp S │ &kp D │     &kp F     │     &kp G     │                           │  &kp H  │     &kp J      │   &kp K   │  &kp L  │ &kp SEMI │
+//    ├───────┼───────┼───────┼───────────────┼───────────────┤                           ├─────────┼────────────────┼───────────┼─────────┼──────────┤
+//    │ &kp Z │ &kp X │ &kp C │     &kp V     │     &kp B     │                           │  &kp N  │     &kp M      │ &kp COMMA │ &kp DOT │ &kp FSLH │
+//    └───────┴───────┴───────┼───────────────┼───────────────┼────────────────┬──────────┼─────────┼────────────────┼───────────┴─────────┴──────────┘
+//                            │ &hm LCTRL ESC │ &hm LSHFT TAB │ &hm LALT SPACE │ &kp BSPC │ &kp RET │ &td_mac_gaming │                                 
+//                            └───────────────┴───────────────┴────────────────┴──────────┴─────────┴────────────────┘                                 
+  &kp Q   &kp W   &kp E   &kp R           &kp T                                       &kp Y     &kp U            &kp I       &kp O     &kp P   
+  &kp A   &kp S   &kp D   &kp F           &kp G                                       &kp H     &kp J            &kp K       &kp L     &kp SEMI
+  &kp Z   &kp X   &kp C   &kp V           &kp B                                       &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
+                          &hm LCTRL ESC   &hm LSHFT TAB   &hm LALT SPACE   &kp BSPC   &kp RET   &td_mac_gaming                                 
 			>;
 		};
 
@@ -449,19 +449,19 @@
 		win_gaming_layer {
             label = "Windows Gaming";
 			bindings = <
-//    ┌───────┬───────┬───────┬──────────────┬───────────────┐                            ┌─────────┬────────────────┬───────────┬─────────┬──────────┐
-//    │ &kp Q │ &kp W │ &kp E │    &kp R     │     &kp T     │                            │  &kp Y  │     &kp U      │   &kp I   │  &kp O  │  &kp P   │
-//    ├───────┼───────┼───────┼──────────────┼───────────────┤                            ├─────────┼────────────────┼───────────┼─────────┼──────────┤
-//    │ &kp A │ &kp S │ &kp D │    &kp F     │     &kp G     │                            │  &kp H  │     &kp J      │   &kp K   │  &kp L  │ &kp SEMI │
-//    ├───────┼───────┼───────┼──────────────┼───────────────┤                            ├─────────┼────────────────┼───────────┼─────────┼──────────┤
-//    │ &kp Z │ &kp X │ &kp C │    &kp V     │     &kp B     │                            │  &kp N  │     &kp M      │ &kp COMMA │ &kp DOT │ &kp FSLH │
-//    └───────┴───────┴───────┼──────────────┼───────────────┼─────────────────┬──────────┼─────────┼────────────────┼───────────┴─────────┴──────────┘
-//                            │ &hm LALT ESC │ &hm LSHFT TAB │ &hm LCTRL SPACE │ &kp BSPC │ &kp RET │ &td_win_gaming │                                 
-//                            └──────────────┴───────────────┴─────────────────┴──────────┴─────────┴────────────────┘                                 
-  &kp Q   &kp W   &kp E   &kp R          &kp T                                        &kp Y     &kp U            &kp I       &kp O     &kp P   
-  &kp A   &kp S   &kp D   &kp F          &kp G                                        &kp H     &kp J            &kp K       &kp L     &kp SEMI
-  &kp Z   &kp X   &kp C   &kp V          &kp B                                        &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
-                          &hm LALT ESC   &hm LSHFT TAB   &hm LCTRL SPACE   &kp BSPC   &kp RET   &td_win_gaming                                 
+//    ┌───────┬───────┬───────┬───────────────┬───────────────┐                           ┌─────────┬────────────────┬───────────┬─────────┬──────────┐
+//    │ &kp Q │ &kp W │ &kp E │     &kp R     │     &kp T     │                           │  &kp Y  │     &kp U      │   &kp I   │  &kp O  │  &kp P   │
+//    ├───────┼───────┼───────┼───────────────┼───────────────┤                           ├─────────┼────────────────┼───────────┼─────────┼──────────┤
+//    │ &kp A │ &kp S │ &kp D │     &kp F     │     &kp G     │                           │  &kp H  │     &kp J      │   &kp K   │  &kp L  │ &kp SEMI │
+//    ├───────┼───────┼───────┼───────────────┼───────────────┤                           ├─────────┼────────────────┼───────────┼─────────┼──────────┤
+//    │ &kp Z │ &kp X │ &kp C │     &kp V     │     &kp B     │                           │  &kp N  │     &kp M      │ &kp COMMA │ &kp DOT │ &kp FSLH │
+//    └───────┴───────┴───────┼───────────────┼───────────────┼────────────────┬──────────┼─────────┼────────────────┼───────────┴─────────┴──────────┘
+//                            │ &hm LCTRL ESC │ &hm LSHFT TAB │ &hm LALT SPACE │ &kp BSPC │ &kp RET │ &td_win_gaming │                                 
+//                            └───────────────┴───────────────┴────────────────┴──────────┴─────────┴────────────────┘                                 
+  &kp Q   &kp W   &kp E   &kp R           &kp T                                       &kp Y     &kp U            &kp I       &kp O     &kp P   
+  &kp A   &kp S   &kp D   &kp F           &kp G                                       &kp H     &kp J            &kp K       &kp L     &kp SEMI
+  &kp Z   &kp X   &kp C   &kp V           &kp B                                       &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
+                          &hm LCTRL ESC   &hm LSHFT TAB   &hm LALT SPACE   &kp BSPC   &kp RET   &td_win_gaming                                 
 			>;
 		};
 
