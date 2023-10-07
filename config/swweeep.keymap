@@ -359,13 +359,13 @@
 //    ├───────────────┼───────────┼───────────┼───────────┼───────────┤                  ├──────────────────┼──────────────┼───────────────┼───────────────────┼───────┤
 //    │   &kp LGUI    │ &kp LALT  │ &kp LSHFT │ &kp LCTRL │ &kp BSPC  │                  │     &kp LEFT     │   &kp DOWN   │    &kp UP     │     &kp RIGHT     │ &none │
 //    ├───────────────┼───────────┼───────────┼───────────┼───────────┤                  ├──────────────────┼──────────────┼───────────────┼───────────────────┼───────┤
-//    │     &none     │  &kp ESC  │  &kp TAB  │ &kp SPACE │  &kp RET  │                  │ &kp LS(LA(LEFT)) │ &kp LA(LEFT) │ &kp LA(RIGHT) │ &kp LS(LA(RIGHT)) │ &none │
+//    │     &none     │  &kp ESC  │  &kp TAB  │ &kp SPACE │  &kp RET  │                  │ &kp LS(LC(LEFT)) │ &kp LC(LEFT) │ &kp LC(RIGHT) │ &kp LS(LC(RIGHT)) │ &none │
 //    └───────────────┴───────────┴───────────┼───────────┼───────────┼───────┬──────────┼──────────────────┼──────────────┼───────────────┴───────────────────┴───────┘
 //                                            │   &none   │   &none   │ &none │ &kp BSPC │     &kp RET      │   &kp DEL    │                                            
 //                                            └───────────┴───────────┴───────┴──────────┴──────────────────┴──────────────┘                                            
   &kp LC(LS(Z))   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Z)                      &kp PG_DN          &kp HOME       &kp END         &kp PG_UP           &none
   &kp LGUI        &kp LALT    &kp LSHFT   &kp LCTRL   &kp BSPC                       &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
-  &none           &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LA(LEFT))   &kp LA(LEFT)   &kp LA(RIGHT)   &kp LS(LA(RIGHT))   &none
+  &none           &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LC(LEFT))   &kp LC(LEFT)   &kp LC(RIGHT)   &kp LS(LC(RIGHT))   &none
                                           &none       &none       &none   &kp BSPC   &kp RET            &kp DEL                                                 
             >;
         };
