@@ -224,15 +224,15 @@
 //    ┌───────────────┬───────────┬───────────┬───────────┬───────────┐                  ┌──────────────────┬──────────────┬───────────────┬───────────────────┬───────┐
 //    │ &kp LG(LS(Z)) │ &kp LG(X) │ &kp LG(C) │ &kp LG(V) │ &kp LG(Z) │                  │    &kp PG_DN     │   &kp HOME   │    &kp END    │     &kp PG_UP     │ &none │
 //    ├───────────────┼───────────┼───────────┼───────────┼───────────┤                  ├──────────────────┼──────────────┼───────────────┼───────────────────┼───────┤
-//    │   &kp LCTRL   │ &kp LALT  │ &kp LSHFT │ &kp LGUI  │ &kp BSPC  │                  │     &kp LEFT     │   &kp DOWN   │    &kp UP     │     &kp RIGHT     │ &none │
+//    │   &kp LCTRL   │ &kp LALT  │ &kp LSHFT │ &kp LGUI  │  &kp MEH  │                  │     &kp LEFT     │   &kp DOWN   │    &kp UP     │     &kp RIGHT     │ &none │
 //    ├───────────────┼───────────┼───────────┼───────────┼───────────┤                  ├──────────────────┼──────────────┼───────────────┼───────────────────┼───────┤
-//    │     &none     │  &kp ESC  │  &kp TAB  │ &kp SPACE │  &kp RET  │                  │ &kp LS(LA(LEFT)) │ &kp LA(LEFT) │ &kp LA(RIGHT) │ &kp LS(LA(RIGHT)) │ &none │
+//    │   &kp BSPC    │  &kp ESC  │  &kp TAB  │ &kp SPACE │  &kp RET  │                  │ &kp LS(LA(LEFT)) │ &kp LA(LEFT) │ &kp LA(RIGHT) │ &kp LS(LA(RIGHT)) │ &none │
 //    └───────────────┴───────────┴───────────┼───────────┼───────────┼───────┬──────────┼──────────────────┼──────────────┼───────────────┴───────────────────┴───────┘
 //                                            │   &none   │   &none   │ &none │ &kp BSPC │     &kp RET      │   &kp DEL    │                                            
 //                                            └───────────┴───────────┴───────┴──────────┴──────────────────┴──────────────┘                                            
   &kp LG(LS(Z))   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LG(Z)                      &kp PG_DN          &kp HOME       &kp END         &kp PG_UP           &none
-  &kp LCTRL       &kp LALT    &kp LSHFT   &kp LGUI    &kp BSPC                       &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
-  &none           &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LA(LEFT))   &kp LA(LEFT)   &kp LA(RIGHT)   &kp LS(LA(RIGHT))   &none
+  &kp LCTRL       &kp LALT    &kp LSHFT   &kp LGUI    &kp MEH                        &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
+  &kp BSPC        &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LA(LEFT))   &kp LA(LEFT)   &kp LA(RIGHT)   &kp LS(LA(RIGHT))   &none
                                           &none       &none       &none   &kp BSPC   &kp RET            &kp DEL                                                 
             >;
         };
@@ -240,57 +240,57 @@
 		mac_number_layer {
             label = "Mac Numbers";
 			bindings = <
-//    ┌───────────┬────────┬────────┬─────────┬───────────┐                ┌───────┬──────────┬───────────┬──────────┬───────────┐
-//    │ &kp GRAVE │ &kp N7 │ &kp N8 │ &kp N9  │ &kp BSLH  │                │ &none │  &none   │   &none   │  &none   │   &none   │
-//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├───────┼──────────┼───────────┼──────────┼───────────┤
-//    │  &kp SQT  │ &kp N4 │ &kp N5 │ &kp N6  │ &kp EQUAL │                │ &none │ &kp RGUI │ &kp RSHFT │ &kp RALT │ &kp RCTRL │
-//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├───────┼──────────┼───────────┼──────────┼───────────┤
-//    │ &kp LBKT  │ &kp N1 │ &kp N2 │ &kp N3  │ &kp RBKT  │                │ &none │  &none   │   &none   │  &none   │   &none   │
-//    └───────────┴────────┴────────┼─────────┼───────────┼────────┬───────┼───────┼──────────┼───────────┴──────────┴───────────┘
-//                                  │ &kp ESC │ &kp MINUS │ &kp N0 │ &none │ &none │  &none   │                                   
-//                                  └─────────┴───────────┴────────┴───────┴───────┴──────────┘                                   
-  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none   &none      &none       &none      &none    
-  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &none   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
-  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none   &none      &none       &none      &none    
-                                &kp ESC   &kp MINUS   &kp N0   &none   &none   &none                                      
+//    ┌───────────┬────────┬────────┬─────────┬───────────┐                ┌─────────┬──────────┬───────────┬──────────┬───────────┐
+//    │ &kp GRAVE │ &kp N7 │ &kp N8 │ &kp N9  │ &kp BSLH  │                │  &none  │  &none   │   &none   │  &none   │   &none   │
+//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├─────────┼──────────┼───────────┼──────────┼───────────┤
+//    │  &kp SQT  │ &kp N4 │ &kp N5 │ &kp N6  │ &kp EQUAL │                │ &kp MEH │ &kp RGUI │ &kp RSHFT │ &kp RALT │ &kp RCTRL │
+//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├─────────┼──────────┼───────────┼──────────┼───────────┤
+//    │ &kp LBKT  │ &kp N1 │ &kp N2 │ &kp N3  │ &kp RBKT  │                │  &none  │  &none   │   &none   │  &none   │   &none   │
+//    └───────────┴────────┴────────┼─────────┼───────────┼────────┬───────┼─────────┼──────────┼───────────┴──────────┴───────────┘
+//                                  │ &kp ESC │ &kp MINUS │ &kp N0 │ &none │  &none  │  &none   │                                   
+//                                  └─────────┴───────────┴────────┴───────┴─────────┴──────────┘                                   
+  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none     &none      &none       &none      &none    
+  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
+  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none     &none      &none       &none      &none    
+                                &kp ESC   &kp MINUS   &kp N0   &none   &none     &none                                      
 			>;
 		};
 
 		mac_symbol_layer {
             label = "Mac Symbols";
             bindings = <
-//    ┌───────────┬────────────┬───────────┬───────────┬───────────┐                  ┌───────┬──────────┬───────────┬──────────┬───────────┐
-//    │ &kp TILDE │  &kp AMPS  │ &kp ASTRK │ &kp LPAR  │ &kp PIPE  │                  │ &none │  &none   │   &none   │  &none   │   &none   │
-//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├───────┼──────────┼───────────┼──────────┼───────────┤
-//    │  &kp DQT  │ &kp DOLLAR │ &kp PRCNT │ &kp CARET │ &kp PLUS  │                  │ &none │ &kp RGUI │ &kp RSHFT │ &kp RALT │ &kp RCTRL │
-//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├───────┼──────────┼───────────┼──────────┼───────────┤
-//    │ &kp LBRC  │  &kp EXCL  │  &kp AT   │ &kp HASH  │ &kp RBRC  │                  │ &none │  &none   │   &none   │  &none   │   &none   │
-//    └───────────┴────────────┴───────────┼───────────┼───────────┼──────────┬───────┼───────┼──────────┼───────────┴──────────┴───────────┘
-//                                         │  &kp ESC  │ &kp UNDER │ &kp RPAR │ &none │ &none │  &none   │                                   
-//                                         └───────────┴───────────┴──────────┴───────┴───────┴──────────┘                                   
-  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none   &none      &none       &none      &none    
-  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &none   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
-  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none   &none      &none       &none      &none    
-                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none   &none                                      
+//    ┌───────────┬────────────┬───────────┬───────────┬───────────┐                  ┌─────────┬──────────┬───────────┬──────────┬───────────┐
+//    │ &kp TILDE │  &kp AMPS  │ &kp ASTRK │ &kp LPAR  │ &kp PIPE  │                  │  &none  │  &none   │   &none   │  &none   │   &none   │
+//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├─────────┼──────────┼───────────┼──────────┼───────────┤
+//    │  &kp DQT  │ &kp DOLLAR │ &kp PRCNT │ &kp CARET │ &kp PLUS  │                  │ &kp MEH │ &kp RGUI │ &kp RSHFT │ &kp RALT │ &kp RCTRL │
+//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├─────────┼──────────┼───────────┼──────────┼───────────┤
+//    │ &kp LBRC  │  &kp EXCL  │  &kp AT   │ &kp HASH  │ &kp RBRC  │                  │  &none  │  &none   │   &none   │  &none   │   &none   │
+//    └───────────┴────────────┴───────────┼───────────┼───────────┼──────────┬───────┼─────────┼──────────┼───────────┴──────────┴───────────┘
+//                                         │  &kp ESC  │ &kp UNDER │ &kp RPAR │ &none │  &none  │  &none   │                                   
+//                                         └───────────┴───────────┴──────────┴───────┴─────────┴──────────┘                                   
+  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none     &none      &none       &none      &none    
+  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
+  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none     &none      &none       &none      &none    
+                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none     &none                                      
             >;
         };
 			
 		mac_function_layer {
             label = "Mac Function keys";
 			bindings = <
-//    ┌─────────┬────────┬────────┬────────┬───────┐               ┌───────┬──────────┬───────────┬──────────┬───────────┐
-//    │ &kp F12 │ &kp F7 │ &kp F8 │ &kp F9 │ &none │               │ &none │  &none   │   &none   │  &none   │   &none   │
-//    ├─────────┼────────┼────────┼────────┼───────┤               ├───────┼──────────┼───────────┼──────────┼───────────┤
-//    │ &kp F11 │ &kp F4 │ &kp F5 │ &kp F6 │ &none │               │ &none │ &kp RGUI │ &kp RSHFT │ &kp RALT │ &kp RCTRL │
-//    ├─────────┼────────┼────────┼────────┼───────┤               ├───────┼──────────┼───────────┼──────────┼───────────┤
-//    │ &kp F10 │ &kp F1 │ &kp F2 │ &kp F3 │ &none │               │ &none │  &none   │   &none   │  &none   │   &none   │
-//    └─────────┴────────┴────────┼────────┼───────┼───────┬───────┼───────┼──────────┼───────────┴──────────┴───────────┘
-//                                │ &none  │ &none │ &none │ &none │ &none │  &none   │                                   
-//                                └────────┴───────┴───────┴───────┴───────┴──────────┘                                   
-  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none   &none      &none       &none      &none    
-  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &none   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
-  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none   &none      &none       &none      &none    
-                              &none    &none   &none   &none   &none   &none                                      
+//    ┌─────────┬────────┬────────┬────────┬───────┐               ┌─────────┬──────────┬───────────┬──────────┬───────────┐
+//    │ &kp F12 │ &kp F7 │ &kp F8 │ &kp F9 │ &none │               │  &none  │  &none   │   &none   │  &none   │   &none   │
+//    ├─────────┼────────┼────────┼────────┼───────┤               ├─────────┼──────────┼───────────┼──────────┼───────────┤
+//    │ &kp F11 │ &kp F4 │ &kp F5 │ &kp F6 │ &none │               │ &kp MEH │ &kp RGUI │ &kp RSHFT │ &kp RALT │ &kp RCTRL │
+//    ├─────────┼────────┼────────┼────────┼───────┤               ├─────────┼──────────┼───────────┼──────────┼───────────┤
+//    │ &kp F10 │ &kp F1 │ &kp F2 │ &kp F3 │ &none │               │  &none  │  &none   │   &none   │  &none   │   &none   │
+//    └─────────┴────────┴────────┼────────┼───────┼───────┬───────┼─────────┼──────────┼───────────┴──────────┴───────────┘
+//                                │ &none  │ &none │ &none │ &none │  &none  │  &none   │                                   
+//                                └────────┴───────┴───────┴───────┴─────────┴──────────┘                                   
+  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none     &none      &none       &none      &none    
+  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
+  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none     &none      &none       &none      &none    
+                              &none    &none   &none   &none   &none     &none                                      
 			>;
 		};
 
@@ -357,15 +357,15 @@
 //    ┌───────────────┬───────────┬───────────┬───────────┬───────────┐                  ┌──────────────────┬──────────────┬───────────────┬───────────────────┬───────┐
 //    │ &kp LC(LS(Z)) │ &kp LC(X) │ &kp LC(C) │ &kp LC(V) │ &kp LC(Z) │                  │    &kp PG_DN     │   &kp HOME   │    &kp END    │     &kp PG_UP     │ &none │
 //    ├───────────────┼───────────┼───────────┼───────────┼───────────┤                  ├──────────────────┼──────────────┼───────────────┼───────────────────┼───────┤
-//    │   &kp LGUI    │ &kp LALT  │ &kp LSHFT │ &kp LCTRL │ &kp BSPC  │                  │     &kp LEFT     │   &kp DOWN   │    &kp UP     │     &kp RIGHT     │ &none │
+//    │   &kp LGUI    │ &kp LALT  │ &kp LSHFT │ &kp LCTRL │  &kp MEH  │                  │     &kp LEFT     │   &kp DOWN   │    &kp UP     │     &kp RIGHT     │ &none │
 //    ├───────────────┼───────────┼───────────┼───────────┼───────────┤                  ├──────────────────┼──────────────┼───────────────┼───────────────────┼───────┤
-//    │     &none     │  &kp ESC  │  &kp TAB  │ &kp SPACE │  &kp RET  │                  │ &kp LS(LC(LEFT)) │ &kp LC(LEFT) │ &kp LC(RIGHT) │ &kp LS(LC(RIGHT)) │ &none │
+//    │   &kp BSPC    │  &kp ESC  │  &kp TAB  │ &kp SPACE │  &kp RET  │                  │ &kp LS(LC(LEFT)) │ &kp LC(LEFT) │ &kp LC(RIGHT) │ &kp LS(LC(RIGHT)) │ &none │
 //    └───────────────┴───────────┴───────────┼───────────┼───────────┼───────┬──────────┼──────────────────┼──────────────┼───────────────┴───────────────────┴───────┘
 //                                            │   &none   │   &none   │ &none │ &kp BSPC │     &kp RET      │   &kp DEL    │                                            
 //                                            └───────────┴───────────┴───────┴──────────┴──────────────────┴──────────────┘                                            
   &kp LC(LS(Z))   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Z)                      &kp PG_DN          &kp HOME       &kp END         &kp PG_UP           &none
-  &kp LGUI        &kp LALT    &kp LSHFT   &kp LCTRL   &kp BSPC                       &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
-  &none           &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LC(LEFT))   &kp LC(LEFT)   &kp LC(RIGHT)   &kp LS(LC(RIGHT))   &none
+  &kp LGUI        &kp LALT    &kp LSHFT   &kp LCTRL   &kp MEH                        &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
+  &kp BSPC        &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LC(LEFT))   &kp LC(LEFT)   &kp LC(RIGHT)   &kp LS(LC(RIGHT))   &none
                                           &none       &none       &none   &kp BSPC   &kp RET            &kp DEL                                                 
             >;
         };
@@ -373,57 +373,57 @@
 		win_number_layer {
             label = "Windows Numbers";
 			bindings = <
-//    ┌───────────┬────────┬────────┬─────────┬───────────┐                ┌───────┬───────────┬───────────┬──────────┬──────────┐
-//    │ &kp GRAVE │ &kp N7 │ &kp N8 │ &kp N9  │ &kp BSLH  │                │ &none │   &none   │   &none   │  &none   │  &none   │
-//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├───────┼───────────┼───────────┼──────────┼──────────┤
-//    │  &kp SQT  │ &kp N4 │ &kp N5 │ &kp N6  │ &kp EQUAL │                │ &none │ &kp RCTRL │ &kp RSHFT │ &kp RALT │ &kp RGUI │
-//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├───────┼───────────┼───────────┼──────────┼──────────┤
-//    │ &kp LBKT  │ &kp N1 │ &kp N2 │ &kp N3  │ &kp RBKT  │                │ &none │   &none   │   &none   │  &none   │  &none   │
-//    └───────────┴────────┴────────┼─────────┼───────────┼────────┬───────┼───────┼───────────┼───────────┴──────────┴──────────┘
-//                                  │ &kp ESC │ &kp MINUS │ &kp N0 │ &none │ &none │   &none   │                                  
-//                                  └─────────┴───────────┴────────┴───────┴───────┴───────────┘                                  
-  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none   &none       &none       &none      &none   
-  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &none   &kp RCTRL   &kp RSHFT   &kp RALT   &kp RGUI
-  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none   &none       &none       &none      &none   
-                                &kp ESC   &kp MINUS   &kp N0   &none   &none   &none                                      
+//    ┌───────────┬────────┬────────┬─────────┬───────────┐                ┌─────────┬───────────┬───────────┬──────────┬──────────┐
+//    │ &kp GRAVE │ &kp N7 │ &kp N8 │ &kp N9  │ &kp BSLH  │                │  &none  │   &none   │   &none   │  &none   │  &none   │
+//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├─────────┼───────────┼───────────┼──────────┼──────────┤
+//    │  &kp SQT  │ &kp N4 │ &kp N5 │ &kp N6  │ &kp EQUAL │                │ &kp MEH │ &kp RCTRL │ &kp RSHFT │ &kp RALT │ &kp RGUI │
+//    ├───────────┼────────┼────────┼─────────┼───────────┤                ├─────────┼───────────┼───────────┼──────────┼──────────┤
+//    │ &kp LBKT  │ &kp N1 │ &kp N2 │ &kp N3  │ &kp RBKT  │                │  &none  │   &none   │   &none   │  &none   │  &none   │
+//    └───────────┴────────┴────────┼─────────┼───────────┼────────┬───────┼─────────┼───────────┼───────────┴──────────┴──────────┘
+//                                  │ &kp ESC │ &kp MINUS │ &kp N0 │ &none │  &none  │   &none   │                                  
+//                                  └─────────┴───────────┴────────┴───────┴─────────┴───────────┘                                  
+  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none     &none       &none       &none      &none   
+  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &kp MEH   &kp RCTRL   &kp RSHFT   &kp RALT   &kp RGUI
+  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none     &none       &none       &none      &none   
+                                &kp ESC   &kp MINUS   &kp N0   &none   &none     &none                                      
 			>;
 		};
 
 		win_symbol_layer {
             label = "Windows Symbols";
             bindings = <
-//    ┌───────────┬────────────┬───────────┬───────────┬───────────┐                  ┌───────┬───────────┬───────────┬──────────┬──────────┐
-//    │ &kp TILDE │  &kp AMPS  │ &kp ASTRK │ &kp LPAR  │ &kp PIPE  │                  │ &none │   &none   │   &none   │  &none   │  &none   │
-//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├───────┼───────────┼───────────┼──────────┼──────────┤
-//    │  &kp DQT  │ &kp DOLLAR │ &kp PRCNT │ &kp CARET │ &kp PLUS  │                  │ &none │ &kp RCTRL │ &kp RSHFT │ &kp RALT │ &kp RGUI │
-//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├───────┼───────────┼───────────┼──────────┼──────────┤
-//    │ &kp LBRC  │  &kp EXCL  │  &kp AT   │ &kp HASH  │ &kp RBRC  │                  │ &none │   &none   │   &none   │  &none   │  &none   │
-//    └───────────┴────────────┴───────────┼───────────┼───────────┼──────────┬───────┼───────┼───────────┼───────────┴──────────┴──────────┘
-//                                         │  &kp ESC  │ &kp UNDER │ &kp RPAR │ &none │ &none │   &none   │                                  
-//                                         └───────────┴───────────┴──────────┴───────┴───────┴───────────┘                                  
-  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none   &none       &none       &none      &none   
-  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &none   &kp RCTRL   &kp RSHFT   &kp RALT   &kp RGUI
-  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none   &none       &none       &none      &none   
-                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none   &none                                      
+//    ┌───────────┬────────────┬───────────┬───────────┬───────────┐                  ┌─────────┬───────────┬───────────┬──────────┬──────────┐
+//    │ &kp TILDE │  &kp AMPS  │ &kp ASTRK │ &kp LPAR  │ &kp PIPE  │                  │  &none  │   &none   │   &none   │  &none   │  &none   │
+//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├─────────┼───────────┼───────────┼──────────┼──────────┤
+//    │  &kp DQT  │ &kp DOLLAR │ &kp PRCNT │ &kp CARET │ &kp PLUS  │                  │ &kp MEH │ &kp RCTRL │ &kp RSHFT │ &kp RALT │ &kp RGUI │
+//    ├───────────┼────────────┼───────────┼───────────┼───────────┤                  ├─────────┼───────────┼───────────┼──────────┼──────────┤
+//    │ &kp LBRC  │  &kp EXCL  │  &kp AT   │ &kp HASH  │ &kp RBRC  │                  │  &none  │   &none   │   &none   │  &none   │  &none   │
+//    └───────────┴────────────┴───────────┼───────────┼───────────┼──────────┬───────┼─────────┼───────────┼───────────┴──────────┴──────────┘
+//                                         │  &kp ESC  │ &kp UNDER │ &kp RPAR │ &none │  &none  │   &none   │                                  
+//                                         └───────────┴───────────┴──────────┴───────┴─────────┴───────────┘                                  
+  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none     &none       &none       &none      &none   
+  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &kp MEH   &kp RCTRL   &kp RSHFT   &kp RALT   &kp RGUI
+  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none     &none       &none       &none      &none   
+                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none     &none                                      
             >;
         };
 			
 		win_function_layer {
             label = "Windows Function keys";
 			bindings = <
-//    ┌─────────┬────────┬────────┬────────┬───────┐               ┌───────┬───────────┬───────────┬──────────┬──────────┐
-//    │ &kp F12 │ &kp F7 │ &kp F8 │ &kp F9 │ &none │               │ &none │   &none   │   &none   │  &none   │  &none   │
-//    ├─────────┼────────┼────────┼────────┼───────┤               ├───────┼───────────┼───────────┼──────────┼──────────┤
-//    │ &kp F11 │ &kp F4 │ &kp F5 │ &kp F6 │ &none │               │ &none │ &kp RCTRL │ &kp RSHFT │ &kp RALT │ &kp RGUI │
-//    ├─────────┼────────┼────────┼────────┼───────┤               ├───────┼───────────┼───────────┼──────────┼──────────┤
-//    │ &kp F10 │ &kp F1 │ &kp F2 │ &kp F3 │ &none │               │ &none │   &none   │   &none   │  &none   │  &none   │
-//    └─────────┴────────┴────────┼────────┼───────┼───────┬───────┼───────┼───────────┼───────────┴──────────┴──────────┘
-//                                │ &none  │ &none │ &none │ &none │ &none │   &none   │                                  
-//                                └────────┴───────┴───────┴───────┴───────┴───────────┘                                  
-  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none   &none       &none       &none      &none   
-  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &none   &kp RCTRL   &kp RSHFT   &kp RALT   &kp RGUI
-  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none   &none       &none       &none      &none   
-                              &none    &none   &none   &none   &none   &none                                      
+//    ┌─────────┬────────┬────────┬────────┬───────┐               ┌─────────┬───────────┬───────────┬──────────┬──────────┐
+//    │ &kp F12 │ &kp F7 │ &kp F8 │ &kp F9 │ &none │               │  &none  │   &none   │   &none   │  &none   │  &none   │
+//    ├─────────┼────────┼────────┼────────┼───────┤               ├─────────┼───────────┼───────────┼──────────┼──────────┤
+//    │ &kp F11 │ &kp F4 │ &kp F5 │ &kp F6 │ &none │               │ &kp MEH │ &kp RCTRL │ &kp RSHFT │ &kp RALT │ &kp RGUI │
+//    ├─────────┼────────┼────────┼────────┼───────┤               ├─────────┼───────────┼───────────┼──────────┼──────────┤
+//    │ &kp F10 │ &kp F1 │ &kp F2 │ &kp F3 │ &none │               │  &none  │   &none   │   &none   │  &none   │  &none   │
+//    └─────────┴────────┴────────┼────────┼───────┼───────┬───────┼─────────┼───────────┼───────────┴──────────┴──────────┘
+//                                │ &none  │ &none │ &none │ &none │  &none  │   &none   │                                  
+//                                └────────┴───────┴───────┴───────┴─────────┴───────────┘                                  
+  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none     &none       &none       &none      &none   
+  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &kp MEH   &kp RCTRL   &kp RSHFT   &kp RALT   &kp RGUI
+  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none     &none       &none       &none      &none   
+                              &none    &none   &none   &none   &none     &none                                      
 			>;
 		};
 
