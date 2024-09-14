@@ -4,20 +4,20 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define DEF_MAC 0
-#define NAV     1
-#define NUM     2
-#define SYM     3
-#define FUN     4
-#define BUT     5
-#define GAM     6
-#define DEF_WIN 7
-#define NAV_WIN 8
-#define NUM_WIN 9
-#define SYM_WIN 10
-#define FUN_WIN 11
-#define BUT_WIN 12
-#define GAM_WIN 13
+#define DEF_WIN 0
+#define NAV_WIN 1
+#define NUM_WIN 2
+#define SYM_WIN 3
+#define FUN_WIN 4
+#define BUT_WIN 5
+#define GAM_WIN 6
+#define DEF_MAC 7
+#define NAV 8
+#define NUM 9
+#define SYM 10
+#define FUN 11
+#define BUT 12
+#define GAM 13
 
 // Timing constants and Hyper/Meh keys
 #define HYP LC(LA(LS(LGUI)))
@@ -58,13 +58,13 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Tap-dance allowing easy switch between mac and windows
-        td_mac_work_win: tap_dance_mac_work_win {
+        // Tap-dance allowing easy switch between work laptop, mac and windows
+        td_work_mac_win: tap_dance_work_mac_win {
             compatible = "zmk,behavior-tap-dance";
-            label = "tap_dance_mac_work_win";
+            label = "tap_dance_work_mac_win";
             #binding-cells = <0>;
             tapping-term-ms = <TAP_DANCE_TAPPING_TERM>;
-            bindings = <&switch_to_mac>, <&switch_to_work>, <&switch_to_win>;
+            bindings = <&switch_to_work>, <&switch_to_mac>, <&switch_to_win>;
         };
 
         // Tap-dance allowing easy switch between mac default layer, gaming and sudoku layer
@@ -97,7 +97,7 @@
             bindings = <&macro_tap &bt BT_SEL 0> , <&macro_tap &to DEF_MAC> ;
         };
 
-        // Macro to select mac bluetooth profile and switch to default work layer
+        // Macro to select work laptop bluetooth profile and switch to default windows layer
         switch_to_work: switch_to_work {
             label = "Macro_switch_to_work";
             compatible = "zmk,behavior-macro";
@@ -222,139 +222,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        mac_default_layer {
-            label = "DEF_MAC";
-            bindings = <
-//    ┌────────────┬────────────┬────────────┬──────────────┬─────────────┐                              ┌──────────────┬──────────────┬────────────┬────────────┬────────────┐
-//    │     Q      │     W      │     E      │      R       │      T      │                              │      Y       │      U       │     I      │     O      │     P      │
-//    ├────────────┼────────────┼────────────┼──────────────┼─────────────┤                              ├──────────────┼──────────────┼────────────┼────────────┼────────────┤
-//    │ &hm lctl A │ &hm lalt S │ &hm lsft D │  &hm lgui F  │  &hm MEH G  │                              │  &hm MEH H   │  &hm rgui J  │ &hm rsft K │ &hm ralt L │ &hm rctl ; │
-//    ├────────────┼────────────┼────────────┼──────────────┼─────────────┤                              ├──────────────┼──────────────┼────────────┼────────────┼────────────┤
-//    │     Z      │     X      │     C      │      V       │      B      │                              │      N       │      M       │     ,      │     .      │     /      │
-//    └────────────┴────────────┴────────────┼──────────────┼─────────────┼──────────────┬───────────────┼──────────────┼──────────────┼────────────┴────────────┴────────────┘
-//                                           │ &trl BUT esc │ &hm HYP tab │ &trl NAV spc │ &trl NUM bspc │ &trl SYM ent │ &trl FUN del │                                       
-//                                           └──────────────┴─────────────┴──────────────┴───────────────┴──────────────┴──────────────┘                                       
-  &kp Q         &kp W        &kp E         &kp R          &kp T                                          &kp Y          &kp U          &kp I         &kp O        &kp P         
-  &hm LCTRL A   &hm LALT S   &hm LSHFT D   &hm LGUI F     &hm MEH G                                      &hm MEH H      &hm RGUI J     &hm RSHFT K   &hm RALT L   &hm RCTRL SEMI
-  &kp Z         &kp X        &kp C         &kp V          &kp B                                          &kp N          &kp M          &kp COMMA     &kp DOT      &kp FSLH      
-                                           &trl BUT ESC   &hm HYP TAB   &trl NAV SPACE   &trl NUM BSPC   &trl SYM RET   &trl FUN DEL                                            
-            >;
-        };
-
-		mac_navigation_layer {
-            label = "NAV";
-            bindings = <
-//    ┌───────────────┬─────────┬─────────┬─────────┬─────────┐            ┌──────────────────┬────────────┬────────────┬──────────────────┬─────┐
-//    │ lgui(lsft(Z)) │ lgui(X) │ lgui(C) │ lgui(V) │ lgui(Z) │            │       pgdn       │    home    │    end     │       pgup       │     │
-//    ├───────────────┼─────────┼─────────┼─────────┼─────────┤            ├──────────────────┼────────────┼────────────┼──────────────────┼─────┤
-//    │     lctl      │  lalt   │  lsft   │  lgui   │   MEH   │            │       left       │    down    │     up     │       rght       │     │
-//    ├───────────────┼─────────┼─────────┼─────────┼─────────┤            ├──────────────────┼────────────┼────────────┼──────────────────┼─────┤
-//    │     bspc      │   esc   │   tab   │   spc   │   ent   │            │ lsft(lalt(left)) │ lalt(left) │ lalt(rght) │ lsft(lalt(rght)) │     │
-//    └───────────────┴─────────┴─────────┼─────────┼─────────┼─────┬──────┼──────────────────┼────────────┼────────────┴──────────────────┴─────┘
-//                                        │         │         │     │ bspc │       ent        │    del     │                                      
-//                                        └─────────┴─────────┴─────┴──────┴──────────────────┴────────────┘                                      
-  &kp LG(LS(Z))   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LG(Z)                      &kp PG_DN          &kp HOME       &kp END         &kp PG_UP           &none
-  &kp LCTRL       &kp LALT    &kp LSHFT   &kp LGUI    &kp MEH                        &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
-  &kp BSPC        &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LA(LEFT))   &kp LA(LEFT)   &kp LA(RIGHT)   &kp LS(LA(RIGHT))   &none
-                                          &none       &none       &none   &kp BSPC   &kp RET            &kp DEL                                                 
-            >;
-        };
-
-		mac_number_layer {
-            label = "NUM";
-			bindings = <
-//    ┌───┬───┬───┬─────┬───┐         ┌─────┬──────┬──────┬──────┬──────┐
-//    │ ` │ 7 │ 8 │  9  │ \ │         │     │      │      │      │      │
-//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
-//    │ ' │ 4 │ 5 │  6  │ = │         │ MEH │ rgui │ rsft │ ralt │ rctl │
-//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
-//    │ [ │ 1 │ 2 │  3  │ ] │         │     │      │      │      │      │
-//    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
-//                │ esc │ - │ 0 │     │     │      │                     
-//                └─────┴───┴───┴─────┴─────┴──────┘                     
-  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none     &none      &none       &none      &none    
-  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
-  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none     &none      &none       &none      &none    
-                                &kp ESC   &kp MINUS   &kp N0   &none   &none     &none                                      
-			>;
-		};
-
-		mac_symbol_layer {
-            label = "SYM";
-            bindings = <
-//    ┌───┬───┬───┬─────┬───┐         ┌─────┬──────┬──────┬──────┬──────┐
-//    │ ~ │ & │ * │  (  │ | │         │     │      │      │      │      │
-//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
-//    │ " │ $ │ % │  ^  │ + │         │ MEH │ rgui │ rsft │ ralt │ rctl │
-//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
-//    │ { │ ! │ @ │  #  │ } │         │     │      │      │      │      │
-//    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
-//                │ esc │ _ │ ) │     │     │      │                     
-//                └─────┴───┴───┴─────┴─────┴──────┘                     
-  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none     &none      &none       &none      &none    
-  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
-  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none     &none      &none       &none      &none    
-                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none     &none                                      
-            >;
-        };
-			
-		mac_function_layer {
-            label = "FUN";
-			bindings = <
-//    ┌─────┬────┬────┬─────┬─────┐           ┌─────┬──────┬──────┬──────┬──────┐
-//    │ f12 │ f7 │ f8 │ f9  │     │           │     │      │      │      │      │
-//    ├─────┼────┼────┼─────┼─────┤           ├─────┼──────┼──────┼──────┼──────┤
-//    │ f11 │ f4 │ f5 │ f6  │     │           │ MEH │ rgui │ rsft │ ralt │ rctl │
-//    ├─────┼────┼────┼─────┼─────┤           ├─────┼──────┼──────┼──────┼──────┤
-//    │ f10 │ f1 │ f2 │ f3  │     │           │     │      │      │      │      │
-//    └─────┴────┴────┼─────┼─────┼─────┬─────┼─────┼──────┼──────┴──────┴──────┘
-//                    │     │     │     │     │     │      │                     
-//                    └─────┴─────┴─────┴─────┴─────┴──────┘                     
-  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none     &none      &none       &none      &none    
-  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
-  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none     &none      &none       &none      &none    
-                              &none    &none   &none   &none   &none     &none                                      
-			>;
-		};
-
-		mac_button_layer {
-            label = "BUT";
-			bindings = <
-//    ┌──────────┬──────────┬──────────┬──────────┬──────────┐           ┌──────────────────┬────────────────┬──────┬──────┬───────────┐
-//    │ bt_sel 0 │ bt_sel 1 │ bt_sel 2 │ bt_sel 3 │ bt_sel 4 │           │                  │      prev      │ play │ next │           │
-//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼──────┼───────────┤
-//    │  bt_clr  │          │          │          │          │           │                  │      vold      │ volu │ mute │           │
-//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼──────┼───────────┤
-//    │ out_ tog │          │          │          │   boot   │           │       boot       │      bri-      │ bri+ │ pwr  │ term_lock │
-//    └──────────┴──────────┴──────────┼──────────┼──────────┼─────┬─────┼──────────────────┼────────────────┼──────┴──────┴───────────┘
-//                                     │          │          │     │     │ &td_mac_work_win │ &td_mac_gaming │                          
-//                                     └──────────┴──────────┴─────┴─────┴──────────────────┴────────────────┘                          
-  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none              &kp C_PREV       &kp C_PLAY_PAUSE   &kp C_NEXT    &none        
-  &bt BT_CLR     &none          &none          &none          &none                          &none              &kp C_VOL_DN     &kp C_VOL_UP       &kp C_MUTE    &none        
-  &out OUT_TOG   &none          &none          &none          &bootloader                    &bootloader        &kp C_BRI_DEC    &kp C_BRI_INC      &kp C_POWER   &kp C_AL_LOCK
-                                               &none          &none          &none   &none   &td_mac_work_win   &td_mac_gaming                                                 
-			>;
-		};
-
-		mac_gaming_layer {
-            label = "GAM";
-			bindings = <
-//    ┌───┬───┬───┬──────────────┬──────────────┐                     ┌─────┬────────────────┬───┬───┬───┐
-//    │ Q │ W │ E │      R       │      T       │                     │  Y  │       U        │ I │ O │ P │
-//    ├───┼───┼───┼──────────────┼──────────────┤                     ├─────┼────────────────┼───┼───┼───┤
-//    │ A │ S │ D │      F       │      G       │                     │  H  │       J        │ K │ L │ ; │
-//    ├───┼───┼───┼──────────────┼──────────────┤                     ├─────┼────────────────┼───┼───┼───┤
-//    │ Z │ X │ C │      V       │      B       │                     │  N  │       M        │ , │ . │ / │
-//    └───┴───┴───┼──────────────┼──────────────┼──────────────┬──────┼─────┼────────────────┼───┴───┴───┘
-//                │ &hm lctl esc │ &hm lsft tab │ &hm lalt spc │ bspc │ ent │ &td_mac_gaming │            
-//                └──────────────┴──────────────┴──────────────┴──────┴─────┴────────────────┘            
-  &kp Q   &kp W   &kp E   &kp R           &kp T                                       &kp Y     &kp U            &kp I       &kp O     &kp P   
-  &kp A   &kp S   &kp D   &kp F           &kp G                                       &kp H     &kp J            &kp K       &kp L     &kp SEMI
-  &kp Z   &kp X   &kp C   &kp V           &kp B                                       &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
-                          &hm LCTRL ESC   &hm LSHFT TAB   &hm LALT SPACE   &kp BSPC   &kp RET   &td_mac_gaming                                 
-			>;
-		};
-
         win_default_layer {
             label = "DEF_WIN";
             bindings = <
@@ -365,12 +232,12 @@
 //    ├────────────┼────────────┼────────────┼──────────────────┼─────────────┤                                      ├──────────────────┼──────────────────┼────────────┼────────────┼────────────┤
 //    │     Z      │     X      │     C      │        V         │      B      │                                      │        N         │        M         │     ,      │     .      │     /      │
 //    └────────────┴────────────┴────────────┼──────────────────┼─────────────┼──────────────────┬───────────────────┼──────────────────┼──────────────────┼────────────┴────────────┴────────────┘
-//                                           │ &trl BUT_WIN esc │ &hm HYP tab │ &trl NAV_WIN spc │ &trl NUM_WIN bspc │ &trl SYM_WIN ent │ &trl FUN_WIN del │                                       
-//                                           └──────────────────┴─────────────┴──────────────────┴───────────────────┴──────────────────┴──────────────────┘                                       
-  &kp Q        &kp W        &kp E         &kp R              &kp T                                                  &kp Y              &kp U              &kp I         &hm HYP O    &kp P        
+//                                           │ &trl BUT_WIN esc │ &hm HYP tab │ &trl NAV_WIN spc │ &trl NUM_WIN bspc │ &trl SYM_WIN ent │ &trl FUN_WIN del │
+//                                           └──────────────────┴─────────────┴──────────────────┴───────────────────┴──────────────────┴──────────────────┘
+  &kp Q        &kp W        &kp E         &kp R              &kp T                                                  &kp Y              &kp U              &kp I         &hm HYP O    &kp P
   &hm LGUI A   &hm LALT S   &hm LSHFT D   &hm LCTRL F        &hm MEH G                                              &hm MEH H          &hm LCTRL J        &hm LSHFT K   &hm LALT L   &hm LGUI SEMI
-  &kp Z        &kp X        &kp C         &kp V              &kp B                                                  &kp N              &kp M              &kp COMMA     &kp DOT      &kp FSLH     
-                                          &trl BUT_WIN ESC   &hm HYP TAB   &trl NAV_WIN SPACE   &trl NUM_WIN BSPC   &trl SYM_WIN RET   &trl FUN_WIN DEL                                           
+  &kp Z        &kp X        &kp C         &kp V              &kp B                                                  &kp N              &kp M              &kp COMMA     &kp DOT      &kp FSLH
+                                          &trl BUT_WIN ESC   &hm HYP TAB   &trl NAV_WIN SPACE   &trl NUM_WIN BSPC   &trl SYM_WIN RET   &trl FUN_WIN DEL
             >;
         };
 
@@ -384,12 +251,12 @@
 //    ├───────────────┼─────────┼─────────┼─────────┼─────────┤            ├──────────────────┼────────────┼────────────┼──────────────────┼─────┤
 //    │     bspc      │   esc   │   tab   │   spc   │   ent   │            │ lsft(lctl(left)) │ lctl(left) │ lctl(rght) │ lsft(lctl(rght)) │     │
 //    └───────────────┴─────────┴─────────┼─────────┼─────────┼─────┬──────┼──────────────────┼────────────┼────────────┴──────────────────┴─────┘
-//                                        │         │         │     │ bspc │       ent        │    del     │                                      
-//                                        └─────────┴─────────┴─────┴──────┴──────────────────┴────────────┘                                      
+//                                        │         │         │     │ bspc │       ent        │    del     │
+//                                        └─────────┴─────────┴─────┴──────┴──────────────────┴────────────┘
   &kp LC(LS(Z))   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Z)                      &kp PG_DN          &kp HOME       &kp END         &kp PG_UP           &none
   &kp LGUI        &kp LALT    &kp LSHFT   &kp LCTRL   &kp MEH                        &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
   &kp BSPC        &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LC(LEFT))   &kp LC(LEFT)   &kp LC(RIGHT)   &kp LS(LC(RIGHT))   &none
-                                          &none       &none       &none   &kp BSPC   &kp RET            &kp DEL                                                 
+                                          &none       &none       &none   &kp BSPC   &kp RET            &kp DEL
             >;
         };
 
@@ -403,12 +270,12 @@
 //    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
 //    │ [ │ 1 │ 2 │  3  │ ] │         │     │      │      │      │      │
 //    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
-//                │ esc │ - │ 0 │     │     │      │                     
-//                └─────┴───┴───┴─────┴─────┴──────┘                     
-  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none     &none       &none       &none      &none   
+//                │ esc │ - │ 0 │     │     │      │
+//                └─────┴───┴───┴─────┴─────┴──────┘
+  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none     &none       &none       &none      &none
   &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &kp MEH   &kp LCTRL   &kp LSHFT   &kp LALT   &kp LGUI
-  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none     &none       &none       &none      &none   
-                                &kp ESC   &kp MINUS   &kp N0   &none   &none     &none                                      
+  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none     &none       &none       &none      &none
+                                &kp ESC   &kp MINUS   &kp N0   &none   &none     &none
 			>;
 		};
 
@@ -422,12 +289,12 @@
 //    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
 //    │ { │ ! │ @ │  #  │ } │         │     │      │      │      │      │
 //    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
-//                │ esc │ _ │ ) │     │     │      │                     
-//                └─────┴───┴───┴─────┴─────┴──────┘                     
-  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none     &none       &none       &none      &none   
+//                │ esc │ _ │ ) │     │     │      │
+//                └─────┴───┴───┴─────┴─────┴──────┘
+  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none     &none       &none       &none      &none
   &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &kp MEH   &kp LCTRL   &kp LSHFT   &kp LALT   &kp LGUI
-  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none     &none       &none       &none      &none   
-                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none     &none                                      
+  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none     &none       &none       &none      &none
+                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none     &none
             >;
         };
 			
@@ -441,12 +308,12 @@
 //    ├─────┼────┼────┼─────┼─────┤           ├─────┼──────┼──────┼──────┼──────┤
 //    │ f10 │ f1 │ f2 │ f3  │     │           │     │      │      │      │      │
 //    └─────┴────┴────┼─────┼─────┼─────┬─────┼─────┼──────┼──────┴──────┴──────┘
-//                    │     │     │     │     │     │      │                     
-//                    └─────┴─────┴─────┴─────┴─────┴──────┘                     
-  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none     &none       &none       &none      &none   
+//                    │     │     │     │     │     │      │
+//                    └─────┴─────┴─────┴─────┴─────┴──────┘
+  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none     &none       &none       &none      &none
   &kp F11   &kp F4   &kp F5   &kp F6   &none                   &kp MEH   &kp LCTRL   &kp LSHFT   &kp LALT   &kp LGUI
-  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none     &none       &none       &none      &none   
-                              &none    &none   &none   &none   &none     &none                                      
+  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none     &none       &none       &none      &none
+                              &none    &none   &none   &none   &none     &none
 			>;
 		};
 
@@ -460,12 +327,12 @@
 //    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼──────┼───────────┤
 //    │ out_ tog │          │          │          │   boot   │           │       boot       │      bri-      │ bri+ │ pwr  │ term_lock │
 //    └──────────┴──────────┴──────────┼──────────┼──────────┼─────┬─────┼──────────────────┼────────────────┼──────┴──────┴───────────┘
-//                                     │          │          │     │     │ &td_mac_work_win │ &td_win_gaming │                          
-//                                     └──────────┴──────────┴─────┴─────┴──────────────────┴────────────────┘                          
-  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none              &kp C_PREV       &kp C_PLAY_PAUSE   &kp C_NEXT    &none        
-  &bt BT_CLR     &none          &none          &none          &none                          &none              &kp C_VOL_DN     &kp C_VOL_UP       &kp C_MUTE    &none        
+//                                     │          │          │     │     │ &td_work_mac_win │ &td_win_gaming │
+//                                     └──────────┴──────────┴─────┴─────┴──────────────────┴────────────────┘
+  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none              &kp C_PREV       &kp C_PLAY_PAUSE   &kp C_NEXT    &none
+  &bt BT_CLR     &none          &none          &none          &none                          &none              &kp C_VOL_DN     &kp C_VOL_UP       &kp C_MUTE    &none
   &out OUT_TOG   &none          &none          &none          &bootloader                    &bootloader        &kp C_BRI_DEC    &kp C_BRI_INC      &kp C_POWER   &kp C_AL_LOCK
-                                               &none          &none          &none   &none   &td_mac_work_win   &td_win_gaming                                                 
+                                               &none          &none          &none   &none   &td_work_mac_win   &td_win_gaming
 			>;
 		};
 
@@ -479,15 +346,148 @@
 //    ├───┼───┼───┼──────────────┼──────────────┤                     ├─────┼────────────────┼───┼───┼───┤
 //    │ Z │ X │ C │      V       │      B       │                     │  N  │       M        │ , │ . │ / │
 //    └───┴───┴───┼──────────────┼──────────────┼──────────────┬──────┼─────┼────────────────┼───┴───┴───┘
-//                │ &hm lctl esc │ &hm lsft tab │ &hm lalt spc │ bspc │ ent │ &td_win_gaming │            
-//                └──────────────┴──────────────┴──────────────┴──────┴─────┴────────────────┘            
-  &kp Q   &kp W   &kp E   &kp R           &kp T                                       &kp Y     &kp U            &kp I       &kp O     &kp P   
+//                │ &hm lctl esc │ &hm lsft tab │ &hm lalt spc │ bspc │ ent │ &td_win_gaming │
+//                └──────────────┴──────────────┴──────────────┴──────┴─────┴────────────────┘
+  &kp Q   &kp W   &kp E   &kp R           &kp T                                       &kp Y     &kp U            &kp I       &kp O     &kp P
   &kp A   &kp S   &kp D   &kp F           &kp G                                       &kp H     &kp J            &kp K       &kp L     &kp SEMI
   &kp Z   &kp X   &kp C   &kp V           &kp B                                       &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
-                          &hm LCTRL ESC   &hm LSHFT TAB   &hm LALT SPACE   &kp BSPC   &kp RET   &td_win_gaming                                 
+                          &hm LCTRL ESC   &hm LSHFT TAB   &hm LALT SPACE   &kp BSPC   &kp RET   &td_win_gaming
 			>;
 		};
 
     };
+
+        mac_default_layer {
+            label = "DEF_MAC";
+            bindings = <
+//    ┌────────────┬────────────┬────────────┬──────────────┬─────────────┐                              ┌──────────────┬──────────────┬────────────┬────────────┬────────────┐
+//    │     Q      │     W      │     E      │      R       │      T      │                              │      Y       │      U       │     I      │     O      │     P      │
+//    ├────────────┼────────────┼────────────┼──────────────┼─────────────┤                              ├──────────────┼──────────────┼────────────┼────────────┼────────────┤
+//    │ &hm lctl A │ &hm lalt S │ &hm lsft D │  &hm lgui F  │  &hm MEH G  │                              │  &hm MEH H   │  &hm rgui J  │ &hm rsft K │ &hm ralt L │ &hm rctl ; │
+//    ├────────────┼────────────┼────────────┼──────────────┼─────────────┤                              ├──────────────┼──────────────┼────────────┼────────────┼────────────┤
+//    │     Z      │     X      │     C      │      V       │      B      │                              │      N       │      M       │     ,      │     .      │     /      │
+//    └────────────┴────────────┴────────────┼──────────────┼─────────────┼──────────────┬───────────────┼──────────────┼──────────────┼────────────┴────────────┴────────────┘
+//                                           │ &trl BUT esc │ &hm HYP tab │ &trl NAV spc │ &trl NUM bspc │ &trl SYM ent │ &trl FUN del │
+//                                           └──────────────┴─────────────┴──────────────┴───────────────┴──────────────┴──────────────┘
+  &kp Q         &kp W        &kp E         &kp R          &kp T                                          &kp Y          &kp U          &kp I         &kp O        &kp P
+  &hm LCTRL A   &hm LALT S   &hm LSHFT D   &hm LGUI F     &hm MEH G                                      &hm MEH H      &hm RGUI J     &hm RSHFT K   &hm RALT L   &hm RCTRL SEMI
+  &kp Z         &kp X        &kp C         &kp V          &kp B                                          &kp N          &kp M          &kp COMMA     &kp DOT      &kp FSLH
+                                           &trl BUT ESC   &hm HYP TAB   &trl NAV SPACE   &trl NUM BSPC   &trl SYM RET   &trl FUN DEL
+            >;
+        };
+
+		mac_navigation_layer {
+            label = "NAV";
+            bindings = <
+//    ┌───────────────┬─────────┬─────────┬─────────┬─────────┐            ┌──────────────────┬────────────┬────────────┬──────────────────┬─────┐
+//    │ lgui(lsft(Z)) │ lgui(X) │ lgui(C) │ lgui(V) │ lgui(Z) │            │       pgdn       │    home    │    end     │       pgup       │     │
+//    ├───────────────┼─────────┼─────────┼─────────┼─────────┤            ├──────────────────┼────────────┼────────────┼──────────────────┼─────┤
+//    │     lctl      │  lalt   │  lsft   │  lgui   │   MEH   │            │       left       │    down    │     up     │       rght       │     │
+//    ├───────────────┼─────────┼─────────┼─────────┼─────────┤            ├──────────────────┼────────────┼────────────┼──────────────────┼─────┤
+//    │     bspc      │   esc   │   tab   │   spc   │   ent   │            │ lsft(lalt(left)) │ lalt(left) │ lalt(rght) │ lsft(lalt(rght)) │     │
+//    └───────────────┴─────────┴─────────┼─────────┼─────────┼─────┬──────┼──────────────────┼────────────┼────────────┴──────────────────┴─────┘
+//                                        │         │         │     │ bspc │       ent        │    del     │
+//                                        └─────────┴─────────┴─────┴──────┴──────────────────┴────────────┘
+  &kp LG(LS(Z))   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LG(Z)                      &kp PG_DN          &kp HOME       &kp END         &kp PG_UP           &none
+  &kp LCTRL       &kp LALT    &kp LSHFT   &kp LGUI    &kp MEH                        &kp LEFT           &kp DOWN       &kp UP          &kp RIGHT           &none
+  &kp BSPC        &kp ESC     &kp TAB     &kp SPACE   &kp RET                        &kp LS(LA(LEFT))   &kp LA(LEFT)   &kp LA(RIGHT)   &kp LS(LA(RIGHT))   &none
+                                          &none       &none       &none   &kp BSPC   &kp RET            &kp DEL
+            >;
+        };
+
+		mac_number_layer {
+            label = "NUM";
+			bindings = <
+//    ┌───┬───┬───┬─────┬───┐         ┌─────┬──────┬──────┬──────┬──────┐
+//    │ ` │ 7 │ 8 │  9  │ \ │         │     │      │      │      │      │
+//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
+//    │ ' │ 4 │ 5 │  6  │ = │         │ MEH │ rgui │ rsft │ ralt │ rctl │
+//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
+//    │ [ │ 1 │ 2 │  3  │ ] │         │     │      │      │      │      │
+//    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
+//                │ esc │ - │ 0 │     │     │      │
+//                └─────┴───┴───┴─────┴─────┴──────┘
+  &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none     &none      &none       &none      &none
+  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
+  &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none     &none      &none       &none      &none
+                                &kp ESC   &kp MINUS   &kp N0   &none   &none     &none
+			>;
+		};
+
+		mac_symbol_layer {
+            label = "SYM";
+            bindings = <
+//    ┌───┬───┬───┬─────┬───┐         ┌─────┬──────┬──────┬──────┬──────┐
+//    │ ~ │ & │ * │  (  │ | │         │     │      │      │      │      │
+//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
+//    │ " │ $ │ % │  ^  │ + │         │ MEH │ rgui │ rsft │ ralt │ rctl │
+//    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
+//    │ { │ ! │ @ │  #  │ } │         │     │      │      │      │      │
+//    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
+//                │ esc │ _ │ ) │     │     │      │
+//                └─────┴───┴───┴─────┴─────┴──────┘
+  &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none     &none      &none       &none      &none
+  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
+  &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none     &none      &none       &none      &none
+                                       &kp ESC     &kp UNDER   &kp RPAR   &none   &none     &none
+            >;
+        };
+			
+		mac_function_layer {
+            label = "FUN";
+			bindings = <
+//    ┌─────┬────┬────┬─────┬─────┐           ┌─────┬──────┬──────┬──────┬──────┐
+//    │ f12 │ f7 │ f8 │ f9  │     │           │     │      │      │      │      │
+//    ├─────┼────┼────┼─────┼─────┤           ├─────┼──────┼──────┼──────┼──────┤
+//    │ f11 │ f4 │ f5 │ f6  │     │           │ MEH │ rgui │ rsft │ ralt │ rctl │
+//    ├─────┼────┼────┼─────┼─────┤           ├─────┼──────┼──────┼──────┼──────┤
+//    │ f10 │ f1 │ f2 │ f3  │     │           │     │      │      │      │      │
+//    └─────┴────┴────┼─────┼─────┼─────┬─────┼─────┼──────┼──────┴──────┴──────┘
+//                    │     │     │     │     │     │      │
+//                    └─────┴─────┴─────┴─────┴─────┴──────┘
+  &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none     &none      &none       &none      &none
+  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &kp MEH   &kp RGUI   &kp RSHFT   &kp RALT   &kp RCTRL
+  &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none     &none      &none       &none      &none
+                              &none    &none   &none   &none   &none     &none
+			>;
+		};
+
+		mac_button_layer {
+            label = "BUT";
+			bindings = <
+//    ┌──────────┬──────────┬──────────┬──────────┬──────────┐           ┌──────────────────┬────────────────┬──────┬──────┬───────────┐
+//    │ bt_sel 0 │ bt_sel 1 │ bt_sel 2 │ bt_sel 3 │ bt_sel 4 │           │                  │      prev      │ play │ next │           │
+//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼──────┼───────────┤
+//    │  bt_clr  │          │          │          │          │           │                  │      vold      │ volu │ mute │           │
+//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼──────┼───────────┤
+//    │ out_ tog │          │          │          │   boot   │           │       boot       │      bri-      │ bri+ │ pwr  │ term_lock │
+//    └──────────┴──────────┴──────────┼──────────┼──────────┼─────┬─────┼──────────────────┼────────────────┼──────┴──────┴───────────┘
+//                                     │          │          │     │     │ &td_work_mac_win │ &td_mac_gaming │
+//                                     └──────────┴──────────┴─────┴─────┴──────────────────┴────────────────┘
+  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none              &kp C_PREV       &kp C_PLAY_PAUSE   &kp C_NEXT    &none
+  &bt BT_CLR     &none          &none          &none          &none                          &none              &kp C_VOL_DN     &kp C_VOL_UP       &kp C_MUTE    &none
+  &out OUT_TOG   &none          &none          &none          &bootloader                    &bootloader        &kp C_BRI_DEC    &kp C_BRI_INC      &kp C_POWER   &kp C_AL_LOCK
+                                               &none          &none          &none   &none   &td_work_mac_win   &td_mac_gaming
+			>;
+		};
+
+		mac_gaming_layer {
+            label = "GAM";
+			bindings = <
+//    ┌───┬───┬───┬──────────────┬──────────────┐                     ┌─────┬────────────────┬───┬───┬───┐
+//    │ Q │ W │ E │      R       │      T       │                     │  Y  │       U        │ I │ O │ P │
+//    ├───┼───┼───┼──────────────┼──────────────┤                     ├─────┼────────────────┼───┼───┼───┤
+//    │ A │ S │ D │      F       │      G       │                     │  H  │       J        │ K │ L │ ; │
+//    ├───┼───┼───┼──────────────┼──────────────┤                     ├─────┼────────────────┼───┼───┼───┤
+//    │ Z │ X │ C │      V       │      B       │                     │  N  │       M        │ , │ . │ / │
+//    └───┴───┴───┼──────────────┼──────────────┼──────────────┬──────┼─────┼────────────────┼───┴───┴───┘
+//                │ &hm lctl esc │ &hm lsft tab │ &hm lalt spc │ bspc │ ent │ &td_mac_gaming │
+//                └──────────────┴──────────────┴──────────────┴──────┴─────┴────────────────┘
+  &kp Q   &kp W   &kp E   &kp R           &kp T                                       &kp Y     &kp U            &kp I       &kp O     &kp P
+  &kp A   &kp S   &kp D   &kp F           &kp G                                       &kp H     &kp J            &kp K       &kp L     &kp SEMI
+  &kp Z   &kp X   &kp C   &kp V           &kp B                                       &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH
+                          &hm LCTRL ESC   &hm LSHFT TAB   &hm LALT SPACE   &kp BSPC   &kp RET   &td_mac_gaming
+			>;
+		};
 
 };
