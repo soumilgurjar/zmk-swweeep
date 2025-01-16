@@ -248,14 +248,14 @@
 //    ┌────────────┬────────────┬────────────┬──────────────────┬──────────────┐                                      ┌──────────────────┬──────────────────┬────────────┬────────────┬────────────┐
 //    │     Q      │     W      │     E      │        R         │      T       │                                      │        Y         │        U         │     I      │ &hm HYP O  │     P      │
 //    ├────────────┼────────────┼────────────┼──────────────────┼──────────────┤                                      ├──────────────────┼──────────────────┼────────────┼────────────┼────────────┤
-//    │ &hm lgui A │ &hm lalt S │ &hm lsft D │    &hm lctl F    │  &hm MEH G   │                                      │    &hm MEH H     │    &hm lctl J    │ &hm lsft K │ &hm lalt L │ &hm lgui ; │
+//    │ &hm lgui A │ &hm ralt S │ &hm lsft D │    &hm rctl F    │  &hm MEH G   │                                      │    &hm MEH H     │    &hm rctl J    │ &hm rsft K │ &hm ralt L │ &hm rgui ; │
 //    ├────────────┼────────────┼────────────┼──────────────────┼──────────────┤                                      ├──────────────────┼──────────────────┼────────────┼────────────┼────────────┤
 //    │     Z      │     X      │     C      │        V         │      B       │                                      │        N         │        M         │     ,      │     .      │     /      │
 //    └────────────┴────────────┴────────────┼──────────────────┼──────────────┼──────────────────┬───────────────────┼──────────────────┼──────────────────┼────────────┴────────────┴────────────┘
 //                                           │ &trl BUT_WIN esc │ &hm caps tab │ &trl NAV_WIN spc │ &trl NUM_WIN bspc │ &trl SYM_WIN ent │ &trl FUN_WIN del │
 //                                           └──────────────────┴──────────────┴──────────────────┴───────────────────┴──────────────────┴──────────────────┘
   &kp Q        &kp W        &kp E         &kp R              &kp T                                                   &kp Y              &kp U              &kp I         &hm HYP O    &kp P
-  &hm LGUI A   &hm LALT S   &hm LSHFT D   &hm LCTRL F        &hm MEH G                                               &hm MEH H          &hm LCTRL J        &hm LSHFT K   &hm LALT L   &hm LGUI SEMI
+  &hm LGUI A   &hm RALT S   &hm LSHFT D   &hm RCTRL F        &hm MEH G                                               &hm MEH H          &hm RCTRL J        &hm RSHFT K   &hm RALT L   &hm RGUI SEMI
   &kp Z        &kp X        &kp C         &kp V              &kp B                                                   &kp N              &kp M              &kp COMMA     &kp DOT      &kp FSLH
                                           &trl BUT_WIN ESC   &hm CAPS TAB   &trl NAV_WIN SPACE   &trl NUM_WIN BSPC   &trl SYM_WIN RET   &trl FUN_WIN DEL
             >;
