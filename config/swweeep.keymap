@@ -128,10 +128,10 @@
             bindings = <&caps_word>;
         };
 
-        // Simultaneous J+K+L : Toggle Caps Lock
+        // Simultaneous D+F+J+K : Toggle Caps Lock
         combo_caps_lock {
             timeout-ms = <COMBO_TIMEOUT>;
-            key-positions = <16 17 18>;
+            key-positions = <12 13 16 17>;
             layers = <DEF_MAC DEF_WIN>;
 			slow-release;
             bindings = <&kp CAPS>;
@@ -340,18 +340,18 @@
 		win_button_layer {
             label = "BUT_WIN";
 			bindings = <
-//    ┌──────────┬──────────┬──────────┬──────────┬──────────┐           ┌──────────────────┬────────────────┬──────┬───────┬──────┐
-//    │ bt_sel 0 │ bt_sel 1 │ bt_sel 2 │ bt_sel 3 │ bt_sel 4 │           │                  │      prev      │ play │ next  │      │
-//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼───────┼──────┤
-//    │  bt_clr  │   lalt   │   lsft   │   lctl   │          │           │                  │      vold      │ volu │ mute  │ pscr │
-//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼───────┼──────┤
-//    │ out_ tog │          │          │          │   boot   │           │       boot       │      bri-      │ bri+ │ sleep │ lock │
-//    └──────────┴──────────┴──────────┼──────────┼──────────┼─────┬─────┼──────────────────┼────────────────┼──────┴───────┴──────┘
+//    ┌──────────┬──────────┬──────────┬──────────┬──────────┐           ┌──────────────────┬────────────────┬──────┬───────┬───────────┐
+//    │ bt_sel 0 │ bt_sel 1 │ bt_sel 2 │ bt_sel 3 │ bt_sel 4 │           │                  │      prev      │ play │ next  │           │
+//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼───────┼───────────┤
+//    │  bt_clr  │   lalt   │   lsft   │   lctl   │          │           │                  │      vold      │ volu │ mute  │   pscr    │
+//    ├──────────┼──────────┼──────────┼──────────┼──────────┤           ├──────────────────┼────────────────┼──────┼───────┼───────────┤
+//    │ out_ tog │          │          │          │   boot   │           │       boot       │      bri-      │ bri+ │ sleep │ term_lock │
+//    └──────────┴──────────┴──────────┼──────────┼──────────┼─────┬─────┼──────────────────┼────────────────┼──────┴───────┴───────────┘
 //                                     │          │          │     │     │ &td_work_mac_win │ &td_win_gaming │
 //                                     └──────────┴──────────┴─────┴─────┴──────────────────┴────────────────┘
   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none              &kp C_PREV       &kp C_PLAY_PAUSE   &kp C_NEXT    &none
   &bt BT_CLR     &kp LALT       &kp LSHFT      &kp LCTRL      &none                          &none              &kp C_VOL_DN     &kp C_VOL_UP       &kp C_MUTE    &kp PSCRN
-  &out OUT_TOG   &none          &none          &none          &bootloader                    &bootloader        &kp C_BRI_DEC    &kp C_BRI_INC      &kp C_SLEEP   &kp K_LOCK
+  &out OUT_TOG   &none          &none          &none          &bootloader                    &bootloader        &kp C_BRI_DEC    &kp C_BRI_INC      &kp C_SLEEP   &kp C_AL_LOCK
                                                &none          &none          &none   &none   &td_work_mac_win   &td_win_gaming
 			>;
 		};
