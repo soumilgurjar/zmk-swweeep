@@ -257,14 +257,14 @@
 //    ┌────────────┬────────────┬────────────┬──────────────────┬──────────────┐                                      ┌──────────────────┬──────────────────┬────────────┬────────────┬────────────┐
 //    │     Q      │     W      │     E      │        R         │      T       │                                      │        Y         │        U         │     I      │ &hm HYP O  │     P      │
 //    ├────────────┼────────────┼────────────┼──────────────────┼──────────────┤                                      ├──────────────────┼──────────────────┼────────────┼────────────┼────────────┤
-//    │ &hm lgui A │ &hm ralt S │ &hm lsft D │    &hm rctl F    │  &hm MEH G   │                                      │    &hm MEH H     │    &hm rctl J    │ &hm rsft K │ &hm ralt L │ &hm rgui ; │
+//    │ &hm lgui A │ &hm lalt S │ &hm lsft D │    &hm lctl F    │  &hm MEH G   │                                      │    &hm MEH H     │    &hm rctl J    │ &hm rsft K │ &hm lalt L │ &hm lgui ; │
 //    ├────────────┼────────────┼────────────┼──────────────────┼──────────────┤                                      ├──────────────────┼──────────────────┼────────────┼────────────┼────────────┤
 //    │     Z      │     X      │     C      │        V         │      B       │                                      │        N         │        M         │     ,      │     .      │     /      │
 //    └────────────┴────────────┴────────────┼──────────────────┼──────────────┼──────────────────┬───────────────────┼──────────────────┼──────────────────┼────────────┴────────────┴────────────┘
 //                                           │ &trl BUT_WIN esc │ &hm caps tab │ &trl NAV_WIN spc │ &trl NUM_WIN bspc │ &trl SYM_WIN ent │ &trl FUN_WIN del │
 //                                           └──────────────────┴──────────────┴──────────────────┴───────────────────┴──────────────────┴──────────────────┘
   &kp Q        &kp W        &kp E         &kp R              &kp T                                                   &kp Y              &kp U              &kp I         &hm HYP O    &kp P
-  &hm LGUI A   &hm RALT S   &hm LSHFT D   &hm RCTRL F        &hm MEH G                                               &hm MEH H          &hm RCTRL J        &hm RSHFT K   &hm RALT L   &hm RGUI SEMI
+  &hm LGUI A   &hm LALT S   &hm LSHFT D   &hm LCTRL F        &hm MEH G                                               &hm MEH H          &hm RCTRL J        &hm RSHFT K   &hm LALT L   &hm LGUI SEMI
   &kp Z        &kp X        &kp C         &kp V              &kp B                                                   &kp N              &kp M              &kp COMMA     &kp DOT      &kp FSLH
                                           &trl BUT_WIN ESC   &hm CAPS TAB   &trl NAV_WIN SPACE   &trl NUM_WIN BSPC   &trl SYM_WIN RET   &trl FUN_WIN DEL
             >;
@@ -295,14 +295,14 @@
 //    ┌───┬───┬───┬─────┬───┐         ┌─────┬──────┬──────┬──────┬──────┐
 //    │ ` │ 7 │ 8 │  9  │ \ │         │     │      │      │      │      │
 //    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
-//    │ ' │ 4 │ 5 │  6  │ = │         │ MEH │ lctl │ lsft │ lalt │ lgui │
+//    │ ' │ 4 │ 5 │  6  │ = │         │ MEH │ rctl │ rsft │ lalt │ lgui │
 //    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
 //    │ [ │ 1 │ 2 │  3  │ ] │         │     │      │      │      │      │
 //    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
 //                │ esc │ - │ 0 │     │     │      │
 //                └─────┴───┴───┴─────┴─────┴──────┘
   &kp GRAVE   &kp N7   &kp N8   &kp N9    &kp BSLH                     &none     &none       &none       &none      &none
-  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &kp MEH   &kp LCTRL   &kp LSHFT   &kp LALT   &kp LGUI
+  &kp SQT     &kp N4   &kp N5   &kp N6    &kp EQUAL                    &kp MEH   &kp RCTRL   &kp RSHFT   &kp LALT   &kp LGUI
   &kp LBKT    &kp N1   &kp N2   &kp N3    &kp RBKT                     &none     &none       &none       &none      &none
                                 &kp ESC   &kp MINUS   &kp N0   &none   &none     &none
 			>;
@@ -314,14 +314,14 @@
 //    ┌───┬───┬───┬─────┬───┐         ┌─────┬──────┬──────┬──────┬──────┐
 //    │ ~ │ & │ * │  (  │ | │         │     │      │      │      │      │
 //    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
-//    │ " │ $ │ % │  ^  │ + │         │ MEH │ lctl │ lsft │ lalt │ lgui │
+//    │ " │ $ │ % │  ^  │ + │         │ MEH │ rctl │ rsft │ lalt │ lgui │
 //    ├───┼───┼───┼─────┼───┤         ├─────┼──────┼──────┼──────┼──────┤
 //    │ { │ ! │ @ │  #  │ } │         │     │      │      │      │      │
 //    └───┴───┴───┼─────┼───┼───┬─────┼─────┼──────┼──────┴──────┴──────┘
 //                │ esc │ _ │ ) │     │     │      │
 //                └─────┴───┴───┴─────┴─────┴──────┘
   &kp TILDE   &kp AMPS     &kp ASTRK   &kp LPAR    &kp PIPE                       &none     &none       &none       &none      &none
-  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &kp MEH   &kp LCTRL   &kp LSHFT   &kp LALT   &kp LGUI
+  &kp DQT     &kp DOLLAR   &kp PRCNT   &kp CARET   &kp PLUS                       &kp MEH   &kp RCTRL   &kp RSHFT   &kp LALT   &kp LGUI
   &kp LBRC    &kp EXCL     &kp AT      &kp HASH    &kp RBRC                       &none     &none       &none       &none      &none
                                        &kp ESC     &kp UNDER   &kp RPAR   &none   &none     &none
             >;
@@ -333,14 +333,14 @@
 //    ┌─────┬────┬────┬─────┬─────┐           ┌─────┬──────┬──────┬──────┬──────┐
 //    │ f12 │ f7 │ f8 │ f9  │     │           │     │      │      │      │      │
 //    ├─────┼────┼────┼─────┼─────┤           ├─────┼──────┼──────┼──────┼──────┤
-//    │ f11 │ f4 │ f5 │ f6  │     │           │ MEH │ lctl │ lsft │ lalt │ lgui │
+//    │ f11 │ f4 │ f5 │ f6  │     │           │ MEH │ rctl │ rsft │ lalt │ lgui │
 //    ├─────┼────┼────┼─────┼─────┤           ├─────┼──────┼──────┼──────┼──────┤
 //    │ f10 │ f1 │ f2 │ f3  │     │           │     │      │      │      │      │
 //    └─────┴────┴────┼─────┼─────┼─────┬─────┼─────┼──────┼──────┴──────┴──────┘
 //                    │     │     │     │     │     │      │
 //                    └─────┴─────┴─────┴─────┴─────┴──────┘
   &kp F12   &kp F7   &kp F8   &kp F9   &none                   &none     &none       &none       &none      &none
-  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &kp MEH   &kp LCTRL   &kp LSHFT   &kp LALT   &kp LGUI
+  &kp F11   &kp F4   &kp F5   &kp F6   &none                   &kp MEH   &kp RCTRL   &kp RSHFT   &kp LALT   &kp LGUI
   &kp F10   &kp F1   &kp F2   &kp F3   &none                   &none     &none       &none       &none      &none
                               &none    &none   &none   &none   &none     &none
 			>;
